@@ -38,8 +38,15 @@ ig.BeatTrackView = ig.HudItem.extend({
 	},
 	
 	draw: function() {
+
+        if( this.currentAnim ) {
+            var animSheet = this.currentAnim.sheet;
+            this.currentAnim.draw(Math.round(this.pos.x - ( animSheet.width  / 2 ) ), Math.round( this.pos.y ) );
+        }
+
 		var progress = 0.0;
         var beatItem = null;
+
 		for(var i = 0; i < this.beatItems.length; i++) {
             beatItem = this.beatItems[i];
             progress = beatItem.beat.progress;
@@ -53,13 +60,11 @@ ig.BeatTrackView = ig.HudItem.extend({
 			var hsWidth  = 10;
 			
 			var hsStartY = this.pos.y + (this.vec.y * this.hotSpot.start);
-			var hsWidthY = this.pos.y + (this.vec.y * (this.hotSpot.end - this.hotSpot.start));
+            var hsEndY   = (this.vec.y * ( this.hotSpot.end - this.hotSpot.start) );
 			var context = ig.system.context;
 			context.fillStyle = 'red';
-			context.fillRect(hsStartX, hsStartY, hsWidth, hsWidthY);
+			context.fillRect(hsStartX, hsStartY, hsWidth, hsEndY);
 		}
-
-        this.parent();
 	}
 });
 

@@ -1,7 +1,7 @@
 ig.module(
 	'game.beat.StreakEventLogic'
 )
-.requires('game.beat.BeatStrikeLogic')
+.requires( )
 .defines(function(){
 
 ig.StreakEventLogic = ig.Class.extend({
@@ -13,7 +13,7 @@ ig.StreakEventLogic = ig.Class.extend({
 	spiritAdded : 1,
 	
 	init : function(levelStats) {
-		this.levelStats = levelStats;
+		//this.levelStats = levelStats;
 	},
 		
 	onTarget : function(beats) {
@@ -23,7 +23,7 @@ ig.StreakEventLogic = ig.Class.extend({
 		}
 		
 		if(this.onStreak) {
-			this.levelStats.spirit += this.spiritAdded;
+			//this.levelStats.spirit += this.spiritAdded;
 		}
 	},
 	

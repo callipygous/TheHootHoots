@@ -6,10 +6,15 @@ ig.module(
 	'impact.font',
 
     'game.beat.BeatTrackView',
+    'game.beat.BeatTrackLogic',
     'game.beat.BeatUtil',
+    'game.beat.BeatTrack',
+    'game.beat.BeatEventLogic',
+    'game.beat.BeatFactory',
 
     'game.hud.Hud',
-    'game.hud.HudItem'
+    'game.hud.HudItem',
+    'game.time.Metronome'
 )
 .defines(function(){
 
@@ -24,19 +29,30 @@ TheHootHoots = ig.Game.extend({
 	
 	
 	init: function() {
-        this.beatTrackView = new ig.BeatTrackView(10, 10, 10, 480, this.beatTrackAnimSheet);
-        this.beatTrackView.hotSpot = { start : 0.94, end : 0.99 };
+        var hotSpot     = { start : 0.94, end : 0.99 };
+        var destroySpot = { start : 1.0,  end : 10.0 };
 
-        var beat = new ig.Beat(0);
-        this.beatTrackView.enqueueBeat(beat);
+        this.beatEventLogic = new ig.BeatEventLogic(null);
+
+        this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot );
+        this.beatTrackView = new ig.BeatTrackView(300, 100, 300, 580, this.beatTrackAnimSheet);
+        this.beatTrackView.hotSpot = hotSpot;
+        this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 10, this.beatEventLogic );
 
         this.hud.addItem("BEAT_TRACK_VIEW", this.beatTrackView);
+
+        this.beatFactory = new ig.BeatFactory( this.beatTrack, this.beatTrackView );
+
+        this.metronome = new ig.Metronome( 60 );
+        this.metronome.addListener( this.beatTrackLogic );
+        this.metronome.addListener( this.beatFactory );
+        this.metronome.start();
 	},
 	
 	update: function() {
 		// Update all entities and backgroundMaps
 		this.parent();
-		
+		this.metronome.update();
 		// Add your own, additional update code here
 	},
 	

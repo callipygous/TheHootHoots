@@ -2,7 +2,7 @@ ig.module(
 	'game.beat.BeatEventLogic'
 )
 .requires(
-	'game.beat.BeatStreakLogic'
+	'game.beat.StreakEventLogic'
 )
 .defines(function(){
 
@@ -16,9 +16,10 @@ ig.module(
 ig.BeatEventLogic = ig.Class.extend({
 	levelStats  : null,
 	streakLogic : null,
+    consumeBeat : false,
 	
-	init : function(levelStats) {
-		this.levelStats = levelStats;
+	init : function(levelStats ) {
+		//this.levelStats = levelStats;
 		this.streakLogic = new ig.StreakEventLogic(levelStats);
 	},
 	
@@ -30,7 +31,7 @@ ig.BeatEventLogic = ig.Class.extend({
 		if(this.consumeBeat) {
 			this.consumeBeat = false;
 		} else {
-		    this.levelStats.beat.value   += beats.length;
+		    //this.levelStats.beat.value += beats.length;
 		}
 	},
 	

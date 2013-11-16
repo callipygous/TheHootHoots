@@ -37,7 +37,7 @@ ig.module(
 
         shiftBeats : function(perc) {
             for(var i = 0; i < this.beats.length; i++) {
-                this.beats[i].perc += perc;
+                this.beats[i].progress += perc;
             }
         },
 
@@ -45,8 +45,8 @@ ig.module(
         inHotSpot : function(){
             var hs = this.hotSpot;
             var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].perc <= hs.end; i++) {
-                if(this.beats[i].perc >= hs.start) {
+            for(var i = 0; i < this.beats.length && this.beats[i].progress <= hs.end; i++) {
+                if(this.beats[i].progress >= hs.start) {
                     outBeats[outBeats.length] = this.beats[i];
                 }
             }
@@ -57,8 +57,8 @@ ig.module(
         inDestroySpot : function() {
             var ds = this.destroySpot;
             var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].perc <= ds.end; i++) {
-                if(this.beats[i].perc >= ds.start) {
+            for(var i = 0; i < this.beats.length && this.beats[i].progress <= ds.end; i++) {
+                if(this.beats[i].progress >= ds.start) {
                     outBeats[outBeats.length] = this.beats[i];
                 }
             }
@@ -66,11 +66,11 @@ ig.module(
             return outBeats;
         },
 
-        init: function(hsStart , hsEnd, dsStart, dsEnd) {
-            this.hotSpot.start = hsStart;
-            this.hotSpot.end   = hsEnd;
-            this.destroySpot.start = dsStart;
-            this.destroySpot.end   = dsEnd;
+        init: function(hotSpot, destroySpot) {
+            this.hotSpot.start = hotSpot.start;
+            this.hotSpot.end   = hotSpot.end;
+            this.destroySpot.start = destroySpot.start;
+            this.destroySpot.end   = destroySpot.end;
         }
     });
 

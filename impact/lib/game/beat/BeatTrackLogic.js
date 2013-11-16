@@ -2,7 +2,7 @@ ig.module(
 	'game.beat.BeatTrackLogic'
 )
 .requires(
-	'game.lib.beat' 
+	'game.beat.Beat'
 )
 .defines(function(){
 
@@ -20,9 +20,9 @@ ig.module(
 //            press is considered off-target.
 
 /*
- * When a beat has been hit, BeatTrackLogic calls BeatStrikeLogic.onTarget
- * When a beat has been missed, BeatTrackLogic calls BeatStrikeLogic.missed
- * When a beat button press is off target, BeatTrackLogic calls BeatStrikeLogic.offTarget
+ * When a beat has been hit, BeatTrackLogic calls BeatEventLogic.onTarget
+ * When a beat has been missed, BeatTrackLogic calls BeatEventLogic.missed
+ * When a beat button press is off target, BeatTrackLogic calls BeatEventLogic.offTarget
  */
  ig.BeatTrackLogic = ig.Class.extend({
 	beatTrack      : null,
@@ -42,42 +42,63 @@ ig.module(
 		this.beatEventHandler = beatEventHandler;
 	},
 	
-	handleBeats : function(beats) {
-		this.beatTrack.shiftBeats(this.percPerBeat * beats);
-		
-		var hsBeats = this.beatTrack.inHotSpot();
-		var unhandledHsBeat = null;
-		
-		for(var i = 0; i < hsBeats.length && unhandledHsBeat == null; i++) {
-			if(!hsBeats[i].handled) {
-				unhandledHsBeat = hsBeats[i];
-			}
-		}
-		
-		if( ig.input.pressed('space') ) {
-			if(unhandledHsBeat != null) {
-				this.beatEventHandler.onTarget([unhandledHsBeat]);
-				unhandledHsBeat.handled = true;
-			}
-		} else {
-			this.beatEventHandler.offTarget();
-		}
-		unhandledHsBeat = null;
+	handleBeats : function( elapsedBeat ) {
+		this.beatTrack.shiftBeats(this.percPerBeat * elapsedBeat.elapsedBeats);
+        this.handleStruckBeats();
+        this.handleMissedBeats();
+	},
 
-		var pastHsBeats = this.beatTrack.inDestroySpot();
-		var unhandledBeats = [];
-		for(var i = 0; i < pastHsBeats.length; i++) {
-			if(!pastHsBeats[i].handled) {
-				unhandledBeats[unhandledBeats.length] = pastHsBeats[i];
-				pastHsBeats[i].handled = true;
-			}
-		}
-		if(pastHsBeats.length > 0) {
-			this.beatEventHandler.missed(unhandledBeats);
-			this.beatTrack.dequeueBeats(pastHsBeats.length);
-			this.beatTrackView.dequeueBeats(pastHsBeats.length);
-		}
-	}
+    /**
+     * If the user has pressed the "strike" key:
+     *     If there is one or more beats in the hotspot,
+     *         Take the oldest beat in the hotspot and report it as onTarget, i.e. "struck"
+     *     Else, If there are no beats in the hotspot,
+     *         report an off target hit
+     */
+    handleStruckBeats : function() {
+        var hsBeats = this.beatTrack.inHotSpot();
+        var unhandledHsBeat = null;
+
+        for(var i = 0; i < hsBeats.length && unhandledHsBeat == null; i++) {
+            if(!hsBeats[i].handled) {
+                unhandledHsBeat = hsBeats[i];
+            }
+        }
+
+        if( ig.input.pressed('space') ) {
+            if(unhandledHsBeat != null) {
+                this.beatEventHandler.onTarget([unhandledHsBeat]);
+                unhandledHsBeat.handled = true;
+            }
+        } else {
+            this.beatEventHandler.offTarget();
+        }
+        unhandledHsBeat = null;
+    },
+
+     /**
+      * For each "unhandled" (i.e. non-struck ) beat in the destroy spot
+      *     report it as missed
+      * For ALL beats in the destroy
+      *     remove it from the beatTrack/beatTrackView
+      */
+     handleMissedBeats : function() {
+         var pastHsBeats = this.beatTrack.inDestroySpot();
+         var unhandledBeats = [];
+
+         for(var i = 0; i < pastHsBeats.length; i++) {
+             if(!pastHsBeats[i].handled) {
+                 unhandledBeats[unhandledBeats.length] = pastHsBeats[i];
+                 pastHsBeats[i].handled = true;
+             }
+         }
+
+         if(pastHsBeats.length > 0) {
+             this.beatEventHandler.missed(unhandledBeats);
+             this.beatTrack.dequeueBeats(pastHsBeats.length);
+             this.beatTrackView.dequeueBeats(pastHsBeats.length);
+         }
+     }
 });
 
 });
