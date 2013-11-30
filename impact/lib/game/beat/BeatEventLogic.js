@@ -2,7 +2,8 @@ ig.module(
 	'game.beat.BeatEventLogic'
 )
 .requires(
-	'game.beat.StreakEventLogic'
+	'game.beat.StreakEventLogic',
+    'game.beat.Beat'
 )
 .defines(function(){
 
@@ -28,19 +29,18 @@ ig.BeatEventLogic = ig.Class.extend({
 	*   add the appropriate points to beats 
 	*/
 	onTarget : function(beats) {
-		if(this.consumeBeat) {
-			this.consumeBeat = false;
-		} else {
-		    //this.levelStats.beat.value += beats.length;
-		}
+        for( var i = 0; i < beats.length; i++ ) {
+            beats[i].setStatus( BeatStatus.STRUCK );
+            beats[i].handled = true;
+        }
+        //this.levelStats.beat.value += beats.length;
 	},
 	
 	/**
 	*	When a player presses the beat button when there are no beats in the
-	*   beatTrack hotspot then offTarget removes any streak and consumes the
+	*   beatTrack hotspot then offTarget removes any streak and consumes the next beat
 	*/
-	offTarget : function() {
-		this.consumeBeat = true;
+	offTarget : function( ) {
 		this.streakLogic.offTarget();
 	},
 	
@@ -49,8 +49,16 @@ ig.BeatEventLogic = ig.Class.extend({
 	*   the beatTrack hotspot, then missed removes any streak.
 	*/
 	missed : function(beats) {
+        for( var i = 0; i < beats.length; i++ ) {
+            beats[i].setStatus( BeatStatus.MISSED );
+            beats[i].handled = true;
+        }
 		this.streakLogic.missed(beats);
-	}
+	},
+
+    fumbledBeats : function(beats) {
+        this.missed( beats );
+    }
 });
 
 });

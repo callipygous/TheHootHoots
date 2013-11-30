@@ -25,7 +25,7 @@ ig.BeatFactory = ig.Class.extend({
         }
     },
 	
-	makeBeat : function() {		
+	makeBeat : function() {
 		var beat = new ig.Beat(0);
 		this.beatTrack.enqueueBeat( beat );
 		this.beatTrackView.enqueueBeat( beat );

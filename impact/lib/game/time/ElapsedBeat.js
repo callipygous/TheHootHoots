@@ -9,9 +9,9 @@ ig.module(
         elapsedBeats : null,
         elapsedTime  : null,
 
-        init : function(elapsedBeats, elapsedTime) {
-            this.elapsedBeats = elapsedBeats;
+        init : function(elapsedTime, elapsedBeats ) {
             this.elapsedTime  = elapsedTime;
+            this.elapsedBeats = elapsedBeats;
         }
     });
 

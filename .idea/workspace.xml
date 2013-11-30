@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/impact/lib/game/main.js" line="59" mnemonic="9" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="57db1b17-f794-49e4-9279-6a41a91f0cf6" name="Default" comment="" />
     <ignored path="TheHootHoots.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384422250246" ignored="false" />
+    <file path="/Dummy.txt" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384754998232" ignored="false" />
     <file path="$USER_HOME$/Documents/GameThoughts/GameThought/game/lib/logic/BeatStrikeLogic.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384413712134" ignored="false" />
-    <file path="/StreakEventLogic.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384414067308" ignored="false" />
-    <file path="/main.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384422479225" ignored="false" />
+    <file path="/StreakEventLogic.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384733671834" ignored="false" />
+    <file path="/main.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384737104796" ignored="false" />
     <file path="/BeatUtil.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384423393652" ignored="false" />
-    <file path="/index.html" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384420385639" ignored="false" />
-    <file path="/*.regexp" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384419175324" ignored="false" />
-    <file path="/BeatTrackView.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384421498234" ignored="false" />
+    <file path="/index.html" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1385451782565" ignored="false" />
+    <file path="/*.regexp" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384643205780" ignored="false" />
+    <file path="/BeatTrackView.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384737077338" ignored="false" />
     <file path="$USER_HOME$/Documents/GameThoughts/GameThought/game/lib/beatfactory.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384420800616" ignored="false" />
-    <file path="/Beat.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384421429777" ignored="false" />
+    <file path="/Beat.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384733461049" ignored="false" />
     <file path="/LevelStats.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384423307177" ignored="false" />
     <file path="/Stat.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384423352146" ignored="false" />
+    <file path="/BeatTrackLogic.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384742922369" ignored="false" />
+    <file path="/BeatTrack.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384742772946" ignored="false" />
+    <file path="/BeatEventLogic.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384742948064" ignored="false" />
+    <file path="$USER_HOME$/Documents/GameThoughts/GameThought/game/lib/logic/Metronome.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384640408342" ignored="false" />
+    <file path="/ElapsedTime.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384640712660" ignored="false" />
+    <file path="/Metronome.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384642139133" ignored="false" />
+    <file path="/ElapsedBeat.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384641924813" ignored="false" />
+    <file path="/BeatFactory.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384733535298" ignored="false" />
+    <file path="/BeatHItem.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384733333463" ignored="false" />
+    <file path="/HudItem.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384732132224" ignored="false" />
+    <file path="/Util.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384732467674" ignored="false" />
+    <file path="/Rhythm.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1385801287510" ignored="false" />
+    <file path="/Recorder.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1385801431361" ignored="false" />
+    <file path="/RecordButton.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384754180035" ignored="false" />
+    <file path="/RecordingMain.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1385799507306" ignored="false" />
+    <file path="/recorder.html" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1385801160702" ignored="false" />
+    <file path="/RecorderView.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384754877251" ignored="false" />
+    <file path="/PauseButton.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384754548299" ignored="false" />
+    <file path="/RecorderButton.js" changelist="57db1b17-f794-49e4-9279-6a41a91f0cf6" time="1384754662715" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,71 +57,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BeatStrikeLogic.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatStrikeLogic.js">
+      <file leaf-file-name="Recorder.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Recorder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="35" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.0">
+            <state line="53" column="23" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelStats.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/status/LevelStats.js">
+      <file leaf-file-name="BeatFactory.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+            <state line="18" column="11" selection-start="336" selection-end="347" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeatUtil.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatUtil.js">
+      <file leaf-file-name="Metronome.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/time/Metronome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="3" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
+            <state line="34" column="38" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/jumpnrun/index.html">
+      <file leaf-file-name="FlatSongPlayer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/song/FlatSongPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="14" column="3" selection-start="160" selection-end="160" vertical-scroll-proportion="0.5483871">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/jumpnrun/lib/game/main.js">
+      <file leaf-file-name="BeatTrackLogic.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="0" selection-start="6453" selection-end="7457" vertical-scroll-proportion="-8.84">
+            <state line="44" column="4" selection-start="1590" selection-end="1590" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.2641791">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stat.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/status/Stat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="9" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StreakEventLogic.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js">
+      <file leaf-file-name="BeatTrack.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -107,20 +111,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Beat.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/Beat.js">
+      <file leaf-file-name="BeatEventLogic.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="25" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeatHItem.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js">
+      <file leaf-file-name="RecordingMain.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="25" column="26" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rhythm.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Rhythm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="4" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recorder.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/recorder.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="29" selection-start="1537" selection-end="1537" vertical-scroll-proportion="-22.961538">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,22 +159,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js" />
-        <option value="$PROJECT_DIR$/impact/lib/external/BeatUtil.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/hud/Hud.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/hud/HudItem.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js" />
-        <option value="$PROJECT_DIR$/impact/lib/external/Util.js" />
-        <option value="$PROJECT_DIR$/impact/index.html" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/Beat.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/levels/LevelStats.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/status/LimitedStat.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/status/LevelStats.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/status/Stat.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatUtil.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/time/ElapsedBeat.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/main.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/recorder.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/RecordButton.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/PauseButton.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/RecorderButton.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/RecorderView.js" />
+        <option value="$PROJECT_DIR$/impact/index.html" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/RecordingMain.js" />
+        <option value="$PROJECT_DIR$/impact/recorder.html" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/Rhythm.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/recording/Recorder.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/song/FlatSongPlayer.js" />
       </list>
     </option>
   </component>
@@ -254,7 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="beat" />
+              <option name="myItemId" value="recorder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -269,174 +293,16 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="status" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="external" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jumpnrun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jumpnrun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -449,10 +315,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jumpnrun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -471,36 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jumpnrun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jumpnrun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -509,6 +341,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="song" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recording" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -519,15 +429,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../BlocksOfShooty/game" />
     <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\recording" />
+      <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact" />
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\beat" />
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game" />
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib" />
-      <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\external" />
-      <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\media\beat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\status" />
@@ -543,6 +455,13 @@
       <option name="testName" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -556,21 +475,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33168668" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33168668" sideWeight="0.67085075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962447" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -635,118 +554,131 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/impact/lib/game/hud/HudItem.js</url>
+          <line>51</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js</url>
+          <line>75</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js</url>
+          <line>108</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/impact/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="52" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/impact/media/recorder/record_button.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/Hud.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/impact/media/recorder/pause_button.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="8" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/impact/media/recorder/copy_button.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
+    <entry file="file://$PROJECT_DIR$/impact/weltmeister.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="34" selection-start="618" selection-end="623" vertical-scroll-proportion="12.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="3" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="64" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/Beat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="25" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatStrikeLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="35" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/status/LevelStats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/status/Stat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="9" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="3" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/jumpnrun/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/jumpnrun/lib/game/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="0" selection-start="6453" selection-end="7457" vertical-scroll-proportion="-8.84">
+        <state line="5" column="83" selection-start="208" selection-end="418" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.2641791">
+        <state line="15" column="23" selection-start="293" selection-end="319" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="-15.038462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/recorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="29" selection-start="1537" selection-end="1537" vertical-scroll-proportion="-22.961538">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="26" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Rhythm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Recorder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="23" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="4" selection-start="1590" selection-end="1590" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="11" selection-start="336" selection-end="347" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/time/Metronome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="38" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/song/FlatSongPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="3" selection-start="160" selection-end="160" vertical-scroll-proportion="0.5483871">
           <folding />
         </state>
       </provider>

@@ -37,7 +37,11 @@ ig.HudItem = ig.Class.extend({
 		
 		return a;
 	},
-	
+
+    setAnim : function( animName ) {
+      this.currentAnim = this.anims[animName];
+    },
+
 	update: function() {	
 		if( this.currentAnim ) {
 			this.currentAnim.update();

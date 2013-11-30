@@ -9,6 +9,7 @@ ig.module(
         beats : [],	//a list of percentages {id : int, perc : double}
         hotSpot     : {start : -1.0, end : -1.0},
         destroySpot : {start : -1.0, end : -1.0},
+        fumbleSpot  : {start : -1.0, end : -1.0},
 
         enqueueBeat : function(beat) {
             beat.perc = 0;
@@ -41,17 +42,8 @@ ig.module(
             }
         },
 
-        //perhaps handle inHotSpot and pastHotSpot in one pass
         inHotSpot : function(){
-            var hs = this.hotSpot;
-            var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].progress <= hs.end; i++) {
-                if(this.beats[i].progress >= hs.start) {
-                    outBeats[outBeats.length] = this.beats[i];
-                }
-            }
-
-            return outBeats;
+            return this.intervalFromEarliestBeat( this.hotSpot );
         },
 
         inDestroySpot : function() {
@@ -66,11 +58,43 @@ ig.module(
             return outBeats;
         },
 
-        init: function(hotSpot, destroySpot) {
+        pastHotSpot : function() {
+            var hs = this.hotSpot;
+            var outBeats = [];
+            for(var i = 0; i < this.beats.length && this.beats[i].progress > hs.end; i++) {
+                outBeats.push( this.beats[i]);
+            }
+            return outBeats;
+        },
+
+        inFumbleSpot : function() {
+            return this.intervalFromEarliestBeat( this.fumbleSpot );
+        },
+
+        /*
+         * Use the fact that beats are in order of most progress to least to traverse only
+         * up to the first beat from the end that is not within the given interval.
+         */
+        intervalFromEarliestBeat : function( interval ) {
+            var outBeats = [];
+            for(var i = 0; i < this.beats.length && this.beats[i].progress >= interval.start; i++ ) {
+                if(this.beats[i].progress <= interval.end) {
+                    outBeats[outBeats.length] = this.beats[i];
+                }
+            }
+
+            return outBeats;
+        },
+
+        init: function(hotSpot, destroySpot, fumblePerc) {
             this.hotSpot.start = hotSpot.start;
             this.hotSpot.end   = hotSpot.end;
             this.destroySpot.start = destroySpot.start;
             this.destroySpot.end   = destroySpot.end;
+
+            var fumbleHeight = fumblePerc * ( this.hotSpot.end - this.hotSpot.start );
+            this.fumbleSpot.start = this.hotSpot.start - fumbleHeight;
+            this.fumbleSpot.end   = this.hotSpot.start;
         }
     });
 

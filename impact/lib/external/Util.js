@@ -174,3 +174,10 @@ var CombatUtil = {
         return closestEntity;
     }
 };
+
+var BeatStatus = {
+    FRESH  : 0,
+    STRUCK : 1,
+    MISSED : 2,
+    PAST   : 3
+};

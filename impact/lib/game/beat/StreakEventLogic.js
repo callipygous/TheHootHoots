@@ -27,7 +27,7 @@ ig.StreakEventLogic = ig.Class.extend({
 		}
 	},
 	
-	offTarget : function() {
+	offTarget : function( ) {
 		this.resetStreak();
 	},
 	

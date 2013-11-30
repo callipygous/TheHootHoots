@@ -46,6 +46,7 @@ ig.module(
 		this.beatTrack.shiftBeats(this.percPerBeat * elapsedBeat.elapsedBeats);
         this.handleStruckBeats();
         this.handleMissedBeats();
+        this.destroyPastBeats();
 	},
 
     /**
@@ -55,26 +56,45 @@ ig.module(
      *     Else, If there are no beats in the hotspot,
      *         report an off target hit
      */
-    handleStruckBeats : function() {
-        var hsBeats = this.beatTrack.inHotSpot();
-        var unhandledHsBeat = null;
+     handleStruckBeats : function() {
+         var hsBeats = this.beatTrack.inHotSpot();
+         var unhandledHsBeat = null;
+         var missedHsBeat = null;
 
-        for(var i = 0; i < hsBeats.length && unhandledHsBeat == null; i++) {
-            if(!hsBeats[i].handled) {
+         for(var i = 0; i < hsBeats.length && unhandledHsBeat == null; i++) {
+            if( !hsBeats[i].handled ) {
                 unhandledHsBeat = hsBeats[i];
             }
-        }
 
-        if( ig.input.pressed('space') ) {
+            //We don't want to punish people twice for mashing down on a fumbled beat
+            if( hsBeats[i].status == BeatStatus.MISSED ) {
+              missedHsBeat = hsBeats[i];
+            }
+         }
+
+         if( ig.input.pressed('space') ) {
             if(unhandledHsBeat != null) {
                 this.beatEventHandler.onTarget([unhandledHsBeat]);
                 unhandledHsBeat.handled = true;
+            } else {
+                if( missedHsBeat == null ) {
+                    this.beatEventHandler.offTarget();
+                    this.handleFumbledBeats();
+                }
             }
-        } else {
-            this.beatEventHandler.offTarget();
-        }
-        unhandledHsBeat = null;
-    },
+         }
+         unhandledHsBeat = null;
+     },
+
+     /**
+      * When the spacebar is pressed and a beat is close to, but not in, the hotspot
+      * it may be in the fumble spot.  If no beat is in the hot spot when the spacebar
+      * is pressed then ALL beats in the fumble zone are considered missed.
+      */
+     handleFumbledBeats : function( ) {
+         var fsBeats = this.beatTrack.inFumbleSpot();
+         this.beatEventHandler.fumbledBeats( fsBeats );
+     },
 
      /**
       * For each "unhandled" (i.e. non-struck ) beat in the destroy spot
@@ -83,7 +103,7 @@ ig.module(
       *     remove it from the beatTrack/beatTrackView
       */
      handleMissedBeats : function() {
-         var pastHsBeats = this.beatTrack.inDestroySpot();
+         var pastHsBeats = this.beatTrack.pastHotSpot();
          var unhandledBeats = [];
 
          for(var i = 0; i < pastHsBeats.length; i++) {
@@ -93,12 +113,18 @@ ig.module(
              }
          }
 
-         if(pastHsBeats.length > 0) {
+         if(unhandledBeats.length > 0) {
              this.beatEventHandler.missed(unhandledBeats);
-             this.beatTrack.dequeueBeats(pastHsBeats.length);
-             this.beatTrackView.dequeueBeats(pastHsBeats.length);
          }
-     }
+     },
+
+     destroyPastBeats : function() {
+        var pastHsBeats = this.beatTrack.inDestroySpot();
+        if(pastHsBeats.length > 0) {
+            this.beatTrack.dequeueBeats(pastHsBeats.length);
+            this.beatTrackView.dequeueBeats(pastHsBeats.length);
+        }
+    }
 });
 
 });

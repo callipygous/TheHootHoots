@@ -29,21 +29,26 @@ TheHootHoots = ig.Game.extend({
 	
 	
 	init: function() {
-        var hotSpot     = { start : 0.94, end : 0.99 };
+        ig.input.bind( ig.KEY.SPACE, 'space' );
+
+        //var hotSpot     = { start : 0.94, end : 0.99 };
+        var fumblePerc  = 0.75;
+        var hotSpot     = { start : 0.70, end : 0.75 };
         var destroySpot = { start : 1.0,  end : 10.0 };
 
         this.beatEventLogic = new ig.BeatEventLogic(null);
 
-        this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot );
-        this.beatTrackView = new ig.BeatTrackView(300, 100, 300, 580, this.beatTrackAnimSheet);
+        this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot, fumblePerc );
+        this.beatTrackView = new ig.BeatTrackView( 300, 100, 300, 580, this.beatTrackAnimSheet, this.beatTrack );
         this.beatTrackView.hotSpot = hotSpot;
+        this.beatTrackView.fumblePerc = fumblePerc;
         this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 10, this.beatEventLogic );
 
         this.hud.addItem("BEAT_TRACK_VIEW", this.beatTrackView);
 
         this.beatFactory = new ig.BeatFactory( this.beatTrack, this.beatTrackView );
 
-        this.metronome = new ig.Metronome( 60 );
+        this.metronome = new ig.Metronome( 120 );
         this.metronome.addListener( this.beatTrackLogic );
         this.metronome.addListener( this.beatFactory );
         this.metronome.start();

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Impact Game</title>
+	<style type="text/css">
+		html,body {
+			background-color: #333;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 12pt;
+		}
+		
+		#canvas {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+
+        #recorder {
+            background-image: url("media/recorder/recorder.png");
+        }
+
+        #recorder button {
+            font-size: 50pt;
+            float: left;
+        }
+
+            #recorder #button-tray {
+                position: absolute;
+                bottom: 40px;
+                left: 20px;
+            }
+
+                #recorder #button-tray button#record {
+                    color: red;
+                }
+
+                #recorder #button-tray button#stop {
+                    color: #222;
+                }
+
+                #recorder #button-tray button#copy {
+                    float: right;
+                    color: blue;
+                }
+        #recorder #text-tray {
+            position: absolute;
+            margin-top: 0px;
+            font-size: 80pt;
+            top: 0px;
+            right: 70px;
+            color: #08ec09;
+        }
+
+        #recorder #text-tray p {
+            display: inline-block;
+        }
+
+            #recorder #text-tray p.recording {
+                color: red;
+            }
+
+        div#copy-dialog {
+            width: 400px;
+        }
+
+            div#copy-dialog input {
+                width: 375px;
+            }
+	</style>
+
+    <script src="lib/external/third-party/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/external/third-party/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/impact/impact.js"></script>
+    <script type="text/javascript" src="lib/external/Util.js"></script>
+	<script type="text/javascript" src="lib/game/recording/RecordingMain.js"></script>
+
+    <script type="text/javascript">
+        //Recorder will be set by recorder main
+        var secondsInAMinute = 60;
+        var secondsInAnHour  = 60 * secondsInAMinute;
+        var secondsInADay    = 24 * secondsInAnHour;
+
+        var recorder = null;
+        function setRecorderViewStatus( isPlaying ) {
+            var status = ( isPlaying ) ? "recording" : "stopped";
+            $("#recorder-status").text( status );
+            $("#recorder-status").removeClass( "stopped" );
+            $("#recorder-status").removeClass( "recording" );
+            $("#recorder-status").addClass( status );
+        }
+
+        function showRecorderCopy( message ){
+            $("#copy-field").val( message );
+            $("#copy-dialog").dialog( "open" );
+            $("#copy-field").select();
+        }
+
+        function setRecorderTimer( timeInSeconds ) {
+            $("#digits").text( formatTime( timeInSeconds ) );
+        }
+
+        function formatTime( timeInSeconds ) {
+            var timeLeft = timeInSeconds;
+
+            var hours   = Math.floor( timeLeft / secondsInAnHour );
+            timeLeft -= hours * secondsInAnHour;
+
+            var minutes = Math.floor( timeLeft / secondsInAMinute );
+            timeLeft -= minutes * secondsInAMinute;
+
+            var seconds = Math.floor( timeLeft );
+            timeLeft -= seconds;
+
+            var time = twoDigits( minutes ) + ":" + twoDigits( seconds ) + ":" + timeLeft.toString().substring(2,4);
+            return time;
+        }
+
+        function twoDigits( number ) {
+            var str = number.toString();
+            if( str.length < 2 ) {
+                str = "0" + str;
+            }
+            return str;
+        }
+
+    </script>
+
+    <link rel="stylesheet" href="lib/external/third-party/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css">
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+
+    <div id="recorder" title="Basic modal dialog" style="position: absolute; left: 20px; top: 20px; width:1000px; height: 411px;">
+
+        <div id="text-tray">
+            <p id="recorder-status" class="stopped">stopped</p>
+            <p id="digits">00:00:00</p>
+        </div>
+
+        <div id="button-tray">
+            <button id="record" onclick="recorder.record(); return false;">Record</button>
+            <button id="stop"   onclick="recorder.stop(); return false;">Stop</button>
+            <button id="copy"   onclick="recorder.copy(); return false;">Copy</button>
+        </div>
+
+        <div id="copy-dialog">
+            <input id="copy-field" type="text" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $( "div#copy-dialog" ).dialog({ autoOpen: false });
+        });
+    </script>
+</body>
+</html>
