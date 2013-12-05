@@ -1,15 +1,14 @@
 ig.module(
-	'game.beat.BeatFactory'
+	'game.beat.AbstractBeatFactory'
 )
 .requires(
 	'game.beat.Beat'
 )
 .defines(function(){
 
-ig.BeatFactory = ig.Class.extend({
+ig.AbstractBeatFactory = ig.Class.extend({
 	beatTrack          : null,
 	beatTrackView	   : null,
-    unhandledBeats     : 0,
 	
 	init : function(beatTrack, beatTrackView) {
 		this.beatTrack     = beatTrack;
@@ -17,12 +16,6 @@ ig.BeatFactory = ig.Class.extend({
 	},
 
     handleBeats : function( elapsedBeat ) {
-        //TODO: Need to add percentage based on how much over 1 we are
-        this.unhandledBeats += elapsedBeat.elapsedBeats;
-        if( this.unhandledBeats > 1 ) {
-            this.unhandledBeats -= 1;
-            this.makeBeat();
-        }
     },
 	
 	makeBeat : function() {

@@ -181,3 +181,52 @@ var BeatStatus = {
     MISSED : 2,
     PAST   : 3
 };
+
+var SongUtil = {
+    savedSongToBeats : function( song ) {
+        var bpm   = song.bpm;
+        var beats = song.beats;
+        var outBeats = [];
+        var elapsedBeats = 0;
+
+        for( var i = 0; i < beats.length; i++ ) {
+            elapsedBeats += beats[i];
+            outBeats[i] = elapsedBeats;
+        }
+
+        return { "bpm" : bpm, "beats" : outBeats };
+    }
+};
+
+var TimeUtil = {
+
+    formatTime : function( timeInSeconds ) {
+        //Recorder will be set by recorder main
+        var secondsInAMinute = 60;
+        var secondsInAnHour  = 60 * secondsInAMinute;
+        var secondsInADay    = 24 * secondsInAnHour;
+
+        var timeLeft = timeInSeconds;
+
+        var hours   = Math.floor( timeLeft / secondsInAnHour );
+        timeLeft -= hours * secondsInAnHour;
+
+        var minutes = Math.floor( timeLeft / secondsInAMinute );
+        timeLeft -= minutes * secondsInAMinute;
+
+        var seconds = Math.floor( timeLeft );
+        timeLeft -= seconds;
+
+        var time = TimeUtil.twoDigits( minutes ) + ":" + TimeUtil.twoDigits( seconds ) +
+                   ":" + timeLeft.toString().substring(2,4);
+        return time;
+    },
+
+    twoDigits : function( number ) {
+        var str = number.toString();
+        if( str.length < 2 ) {
+            str = "0" + str;
+        }
+        return str;
+    }
+}

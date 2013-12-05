@@ -7,14 +7,18 @@ ig.module(
 
     'game.beat.BeatTrackView',
     'game.beat.BeatTrackLogic',
-    'game.beat.BeatUtil',
     'game.beat.BeatTrack',
     'game.beat.BeatEventLogic',
-    'game.beat.BeatFactory',
 
     'game.hud.Hud',
     'game.hud.HudItem',
-    'game.time.Metronome'
+    'game.time.Metronome',
+
+
+    'game.song.flatsongs.HeartBeat',
+    'game.song.FlatSongPlayer',
+
+    'game.particles.BigBangParticle'
 )
 .defines(function(){
 
@@ -26,9 +30,11 @@ TheHootHoots = ig.Game.extend({
     beatTrackView : null,
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
-	
+    timer : null,
+	bigBang : null,
 	
 	init: function() {
+        this.timer = new ig.Timer();
         ig.input.bind( ig.KEY.SPACE, 'space' );
 
         //var hotSpot     = { start : 0.94, end : 0.99 };
@@ -42,19 +48,31 @@ TheHootHoots = ig.Game.extend({
         this.beatTrackView = new ig.BeatTrackView( 300, 100, 300, 580, this.beatTrackAnimSheet, this.beatTrack );
         this.beatTrackView.hotSpot = hotSpot;
         this.beatTrackView.fumblePerc = fumblePerc;
-        this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 10, this.beatEventLogic );
+        this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 3, this.beatEventLogic );
 
         this.hud.addItem("BEAT_TRACK_VIEW", this.beatTrackView);
 
-        this.beatFactory = new ig.BeatFactory( this.beatTrack, this.beatTrackView );
+        var beats = SongUtil.savedSongToBeats( HeartBeat ).beats;
+        this.beatFactory = new FlatSongPlayer( this.beatTrack, this.beatTrackView, beats );
 
-        this.metronome = new ig.Metronome( 120 );
+        this.metronome = new ig.Metronome( 60 );
         this.metronome.addListener( this.beatTrackLogic );
         this.metronome.addListener( this.beatFactory );
         this.metronome.start();
+
+        this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
 	},
 	
 	update: function() {
+        var delta = this.timer.delta();
+        if( Math.floor( delta )  % 3 == 0 && !this.bigBang.banged ) {
+            this.bigBang.flicker();
+        }
+
+        if( delta > 5 && !this.bigBang.banged ) {
+            this.bigBang.bang();
+        }
+
 		// Update all entities and backgroundMaps
 		this.parent();
 		this.metronome.update();
@@ -67,12 +85,11 @@ TheHootHoots = ig.Game.extend({
 		
 		
 		// Add your own drawing code here
-		var x = ig.system.width/2,
-			y = ig.system.height/2;
+		var x = ig.system.width  * 0.8 ,
+			y = ig.system.height * 0.1 ;
 
         this.hud.draw();
-		
-		this.font.draw( 'It Works!', x, y, ig.Font.ALIGN.CENTER );
+        this.font.draw( TimeUtil.formatTime( this.timer.delta() ), x, y, ig.Font.ALIGN.CENTER );
 	}
 });
 

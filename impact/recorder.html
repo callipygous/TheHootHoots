@@ -81,10 +81,6 @@
 	<script type="text/javascript" src="lib/game/recording/RecordingMain.js"></script>
 
     <script type="text/javascript">
-        //Recorder will be set by recorder main
-        var secondsInAMinute = 60;
-        var secondsInAnHour  = 60 * secondsInAMinute;
-        var secondsInADay    = 24 * secondsInAnHour;
 
         var recorder = null;
         function setRecorderViewStatus( isPlaying ) {
@@ -102,31 +98,7 @@
         }
 
         function setRecorderTimer( timeInSeconds ) {
-            $("#digits").text( formatTime( timeInSeconds ) );
-        }
-
-        function formatTime( timeInSeconds ) {
-            var timeLeft = timeInSeconds;
-
-            var hours   = Math.floor( timeLeft / secondsInAnHour );
-            timeLeft -= hours * secondsInAnHour;
-
-            var minutes = Math.floor( timeLeft / secondsInAMinute );
-            timeLeft -= minutes * secondsInAMinute;
-
-            var seconds = Math.floor( timeLeft );
-            timeLeft -= seconds;
-
-            var time = twoDigits( minutes ) + ":" + twoDigits( seconds ) + ":" + timeLeft.toString().substring(2,4);
-            return time;
-        }
-
-        function twoDigits( number ) {
-            var str = number.toString();
-            if( str.length < 2 ) {
-                str = "0" + str;
-            }
-            return str;
+            $("#digits").text( TimeUtil.formatTime( timeInSeconds ) );
         }
 
     </script>
