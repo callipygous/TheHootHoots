@@ -4,6 +4,7 @@ ig.module(
 .requires(
 	'impact.game',
 	'impact.font',
+    'impact.image',
 
     'game.beat.BeatTrackView',
     'game.beat.BeatTrackLogic',
@@ -18,7 +19,8 @@ ig.module(
     'game.song.flatsongs.HeartBeat',
     'game.song.FlatSongPlayer',
 
-    'game.particles.BigBangParticle'
+    'game.particles.BigBangParticle',
+    'game.obstacles.AutoAsteroidGenerator'
 )
 .defines(function(){
 
@@ -32,7 +34,10 @@ TheHootHoots = ig.Game.extend({
 	font: new ig.Font( 'media/04b03.font.png' ),
     timer : null,
 	bigBang : null,
-	
+    asteroidGenerator : null,
+
+    //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
+
 	init: function() {
         this.timer = new ig.Timer();
         ig.input.bind( ig.KEY.SPACE, 'space' );
@@ -61,6 +66,7 @@ TheHootHoots = ig.Game.extend({
         this.metronome.start();
 
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
+        this.asteroidGenerator = new AutoAsteroidGenerator( 0.5, 50, 0.5, 600, 0.8 );
 	},
 	
 	update: function() {
@@ -76,6 +82,7 @@ TheHootHoots = ig.Game.extend({
 		// Update all entities and backgroundMaps
 		this.parent();
 		this.metronome.update();
+        this.asteroidGenerator.update();
 		// Add your own, additional update code here
 	},
 	

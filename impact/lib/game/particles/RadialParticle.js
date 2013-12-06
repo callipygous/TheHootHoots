@@ -36,6 +36,7 @@ ig.module(
 
         draw : function() {
             var context = ig.system.context;
+            context.save();
             context.beginPath();
 
             var gradient = context.createRadialGradient(this.pos.x, this.pos.y, 0, this.pos.x, this.pos.y, this.radius);
@@ -46,6 +47,7 @@ ig.module(
             context.fillStyle = gradient;
             context.arc(this.pos.x, this.pos.y, this.radius, Math.PI * 2, false );
             context.fill();
+            context.restore();
         },
 
         update : function() {

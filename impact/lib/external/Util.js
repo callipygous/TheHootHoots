@@ -51,7 +51,8 @@ var TypeUtil = {
 
 var MathUtil = {
     rollVariation : function(value, variance) {
-        return value + value * (variance * value * Math.random());
+        var maxVariance = value * variance;
+        return value + ( maxVariance * 2 * Math.random() ) - maxVariance;
     },
 
     rollAgainstChance : function(chance) {
@@ -105,6 +106,67 @@ var MathUtil = {
     scaleVectorInPlace : function(magnitude, vector) {
         vector.x = vector.x * magnitude;
         vector.y = vector.y * magnitude;
+    },
+
+    //equation of an ellipse (x / a)^2 + (y / b)^ 2 = 1
+    //this is an approximation
+    circumferenceOfEllipse : function( a, b ) {
+        var h = Math.pow( ( a - b ), 2 ) / Math.pow( ( a + b ), 2 );
+        var h2 = h * h;
+        var h3 = h2 * h;
+        return Math.PI * ( a + b ) * ( 1 + 0.25 * h + 0.015625 * h2 * 0.00390625 * h3 );
+    },
+
+    quadrant : function( point, origin ) {
+        var quadrant = 1;
+        if( point.x < origin.x ) {
+            if( point.y > origin.y ) {
+                quadrant = 2;
+            } else {
+                quadrant = 3;
+            }
+        } else if( point.y < origin.y ) {
+            quadrant = 4;
+        }
+        return quadrant;
+    },
+
+    distanceTo: function( start, end ) {
+        var xd = start.x - end.x;
+        var yd = start.y - end.y;
+        return Math.sqrt( xd*xd + yd*yd );
+    },
+
+    angleTo: function( start, end ) {
+        return Math.atan2( end.y  - start.y, end.x - start.x );
+    },
+
+    vectorTo: function( start, end ) {
+        var xd = end.x - start.x;
+        var yd = end.y - start.y;
+        var dist = Math.sqrt( xd*xd + yd*yd ); //same as distance up to here
+        return {x : xd / dist, y : yd / dist};
+    },
+
+    normalize : function( vector ) {
+        var magnitude = Math.sqrt( vector.x * vector.x + vector.y + vector.y );
+        vector.x /= magnitude;
+        vector.y /= magnitude;
+    },
+
+    translateInPlace : function( point, transX, transY ) {
+        point.x += transX;
+        point.y += transY;
+    },
+
+    translate : function( point, transX, transY ) {
+        var newPoint = { x : point.x, y : point.y };
+        this.translateInPlace( newPoint, transX, transY );
+        return newPoint;
+    },
+
+    chooseOne : function( values ) {
+        return values[Math.floor( Math.random() * values.length )];
     }
 };
 
@@ -229,4 +291,13 @@ var TimeUtil = {
         }
         return str;
     }
-}
+};
+
+var ScreenSides = {
+  TOP    : 0,
+  RIGHT  : 1,
+  BOTTOM : 2,
+  LEFT   : 3
+};
+
+ScreenSides.values = [ScreenSides.TOP, ScreenSides.RIGHT, ScreenSides.BOTTOM, ScreenSides.LEFT];
