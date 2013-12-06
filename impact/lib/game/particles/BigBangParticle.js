@@ -70,6 +70,7 @@ ig.module(
 
                         opacity  : 1, opacityDecay : 0,
                         killOnMaxRadius : true,
+                        noiseOpacity : 0.25,
 
                         colorStops : [
                             new MorphingColorStop(0, {r: 0,  g : 0,  b : 100, a : 1 },
@@ -84,7 +85,6 @@ ig.module(
         flicker : function() {
             this.flickering = 2;
             this.flickerOpacity = this.opacity;
-
         },
 
         update : function() {
@@ -94,6 +94,10 @@ ig.module(
                 this.flickerOpacity = this.flickerOpacity - ( Math.random() * 0.75 * secondsPassed );
             } else {
                 this.flickerOpacity = 1;
+            }
+
+            if( this.banged ) {
+                this.innerBang.noiseOpacity -= secondsPassed / 50;
             }
 
             this.parent();

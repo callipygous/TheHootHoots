@@ -29,6 +29,9 @@ ig.module(
         killOnMaxRadius  : false,
         latestTick : 0,
 
+        noiseOpacity : 0,
+        noiseImg : new ig.Image( 'media/noise.png' ),
+
         init: function (x, y, settings ) {
             this.parent( x, y, settings );
             this.timer = new ig.Timer();
@@ -47,6 +50,13 @@ ig.module(
             context.fillStyle = gradient;
             context.arc(this.pos.x, this.pos.y, this.radius, Math.PI * 2, false );
             context.fill();
+
+            if( this.noiseOpacity > 0 ) {
+                context.globalAlpha = this.noiseOpacity;
+                context.fillStyle = context.createPattern( this.noiseImg.data, "repeat" );
+                context.fill();
+            }
+
             context.restore();
         },
 

@@ -16,7 +16,7 @@ ig.module(
 
     AsteroidGenerator = ig.Class.extend({
 
-        asteroidImage : new ig.Image( 'media/tmpAsteroid.png' ),
+        asteroidImage : new ig.Image( 'media/asteroid.png' ),
 
         init: function () {
         },
