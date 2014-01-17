@@ -106,6 +106,7 @@ var MathUtil = {
     scaleVectorInPlace : function(magnitude, vector) {
         vector.x = vector.x * magnitude;
         vector.y = vector.y * magnitude;
+        return vector;
     },
 
     //equation of an ellipse (x / a)^2 + (y / b)^ 2 = 1
@@ -167,6 +168,38 @@ var MathUtil = {
 
     chooseOne : function( values ) {
         return values[Math.floor( Math.random() * values.length )];
+    },
+
+    angleToVector : function( angle ) {
+        return { x : Math.cos( angle ),    y : Math.sin( angle )    };
+    },
+
+    angleToScaledVector : function( angle, magnitude ) {
+        return MathUtil.scaleVectorInPlace( magnitude,  MathUtil.angleToVector( angle ) );
+    },
+
+    //sqr, dist2, distToSegmentSquared come from: http://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment
+    sqr : function(x) {
+        return x * x
+    },
+
+    dist2 : function(v, w) {
+        return MathUtil.sqr(v.x - w.x) + MathUtil.sqr(v.y - w.y)
+    },
+
+
+    distToSegmentSquared : function(point, start, end) {
+        var l2 = MathUtil.dist2(start, end);
+        if (l2 == 0) return MathUtil.dist2(point, start);
+        var t = ((point.x - start.x) * (end.x - start.x) + (point.y - start.y) * (end.y - start.y)) / l2;
+        if (t < 0) return MathUtil.dist2(point, start);
+        if (t > 1) return MathUtil.dist2(point, end);
+        return MathUtil.dist2(point, { x: start.x + t * (end.x - start.x),
+            y: start.y + t * (end.y - start.y) });
+    },
+
+    distToSegment : function (point, start, end) {
+        return Math.sqrt(MathUtil.distToSegmentSquared(point, start, end));
     }
 };
 
@@ -290,6 +323,44 @@ var TimeUtil = {
             str = "0" + str;
         }
         return str;
+    }
+};
+
+var DrawUtil = {
+
+    addColorStops : function( gradient, colorStops, opacity ) {
+        for( var i = 0; i < colorStops.length; i++ ) {
+            var colorStop = colorStops[i];
+            gradient.addColorStop(colorStop.distance, colorStop.getRgbaString( opacity ) );
+        }
+    }
+};
+
+var ResourceUtil = {
+
+    makeScratchCanvas : function( id, width, height ) {
+        var $resources = $("#img-resources");
+        if( $resources.length == 0 ) {
+            $resources = $('<div id="img-resources"/>');
+            $('body').prepend( $resources );
+            $resources.css("width: 10000; height: 10000");
+            $resources.css("position:fixed; top:30px; background: red;");
+
+            //$resources.css("display:none;");
+        }
+
+        var resources = $("#img-resources")[0];
+        var canvas = $('<canvas/>', { 'id': id });
+        canvas.width( width )
+        canvas.height( height );
+        $( resources ).append( canvas );
+        var canvas2 = $( "#" + id )[0];
+        $( canvas2 ).css("display:none;");
+        return canvas2;
+    },
+
+    removeScratchCanvas : function( id ) {
+        $( "#" + id).remove();
     }
 };
 

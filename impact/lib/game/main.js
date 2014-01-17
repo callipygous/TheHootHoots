@@ -15,12 +15,21 @@ ig.module(
     'game.hud.HudItem',
     'game.time.Metronome',
 
-
     'game.song.flatsongs.HeartBeat',
     'game.song.FlatSongPlayer',
 
     'game.particles.BigBangParticle',
-    'game.obstacles.AutoAsteroidGenerator'
+    'game.obstacles.AutoAsteroidGenerator',
+
+    'game.player.Player',
+
+    'game.particles.SpiralArm',
+    'game.particles.SpiralParticle',
+
+    'game.util.WritableImage',
+
+    'game.particles.NoiseLine',
+    'game.particles.StarGrid'
 )
 .defines(function(){
 
@@ -28,19 +37,23 @@ TheHootHoots = ig.Game.extend({
 
     hud: new ig.Hud(),
 
-    beatTrackAnimSheet : new ig.AnimationSheet( 'media/beat/beatmeter.png', 15, 480 ),
+    beatTrackAnimSheet : new ig.AnimationSheet( 'media/MilkyWay1024_shaved2.png', 155, 1024 ),
     beatTrackView : null,
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
     timer : null,
 	bigBang : null,
     asteroidGenerator : null,
+    player : null,
 
     //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
 
 	init: function() {
         this.timer = new ig.Timer();
+        ig.input.state("CanvasTouch");
         ig.input.bind( ig.KEY.SPACE, 'space' );
+        ig.input.bind( ig.KEY.MOUSE1, "CanvasTouch" );
+        ig.input.initMouse();
 
         //var hotSpot     = { start : 0.94, end : 0.99 };
         var fumblePerc  = 0.75;
@@ -50,7 +63,7 @@ TheHootHoots = ig.Game.extend({
         this.beatEventLogic = new ig.BeatEventLogic(null);
 
         this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot, fumblePerc );
-        this.beatTrackView = new ig.BeatTrackView( 300, 100, 300, 580, this.beatTrackAnimSheet, this.beatTrack );
+        this.beatTrackView = new ig.BeatTrackView( 100, 0, 100, 1024, this.beatTrackAnimSheet, this.beatTrack );
         this.beatTrackView.hotSpot = hotSpot;
         this.beatTrackView.fumblePerc = fumblePerc;
         this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 3, this.beatEventLogic );
@@ -67,7 +80,59 @@ TheHootHoots = ig.Game.extend({
 
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
         this.asteroidGenerator = new AutoAsteroidGenerator( 0.5, 50, 0.5, 600, 0.8 );
-	},
+
+
+        new StarGrid();
+
+        var reverseSpiralArmArg = {
+            radius : 6,
+
+            topAngle       : /*Math.PI / 4*/ 0,
+            bottomAngle    : 1.5 * Math.PI / 2,
+
+            control1Angle  :  1.5 * Math.PI / 6,
+            control1Magnitude : 10,
+
+            control2Angle  : 1.5 * Math.PI / 4,
+            control2Magnitude : 16,
+
+            endAngle :  1.5 * Math.PI / 3,
+            endMagnitude : 20,
+
+            colorStops : [
+                new ColorStop(0,   { r: 255, g : 20,   b : 20,  a : 1 } ),
+                new ColorStop(0.75, { r: 255, g : 200,  b : 20,  a : 1 } ),
+                new ColorStop(0.75, { r: 255, g : 200,  b : 20,  a : 0.5 } )
+            ]
+        };
+
+        this.spawnEntity("EntitySpiralParticle", 400, 400, {
+            opacity : 1,
+            radius :6,
+
+            colorStops : [
+                new ColorStop(0,    { r: 255, g : 20,  b : 20,  a : 1     } ),
+                new ColorStop(0.65, { r: 255, g : 10,  b : 10,  a : 0.75  } ),
+                new ColorStop(0.85, { r: 255, g : 10,  b : 10,  a : 0.50  } ),
+                new ColorStop(1,    { r: 255, g : 0,   b : 0,   a : 0     } ),
+            ],
+
+            //noiseOpacity : 0.25,
+            spiralArmArgs : reverseSpiralArmArg,
+            numberOfArms : 5,
+            rotationSpeed : -0.007
+        });
+
+        this.spawnEntity("EntityNoiseLine", 200, 200, {
+            name : "MyNoiseLine",
+            start : { x : 30,  y : 30  },
+            end   : { x : 400, y : 400 },
+
+            margin : 100
+        });
+
+        this.player = this.spawnEntity( "EntityPlayer", 100, 100 );
+    },
 	
 	update: function() {
         var delta = this.timer.delta();

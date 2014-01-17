@@ -1,22 +1,48 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Owner
- * Date: 12/7/13
- * Time: 3:07 PM
- * To change this template use File | Settings | File Templates.
- */
 
 ig.module(
-        'your.path.here'
-    )
-    .requires(
-    )
-    .defines(function () {
+    'game.particles.SpiralParticle'
+)
+.requires(
+    'game.particles.RadialParticle'
+)
+.defines(function () {
 
-        MyClass = ig.Class.extend({
+    EntitySpiralParticle = EntityRadialParticle.extend({
 
-            init: function () {
+        rotationSpeed : null,
+        numberOfArms : null,
+        spiralArmArgs : null,
+
+        spiralArms : [],
+
+        init: function ( x, y, settings ) {
+            this.parent( x, y, settings );
+            //Construct arms
+            var spacing = 2 * Math.PI / this.numberOfArms;
+            for( var i = 0; i < this.numberOfArms; i++ ) {
+                this.spiralArms.push( this.makeArm( i * spacing ) );
             }
-        });
+        },
 
+        makeArm : function( startRotation ) {
+            var spiralArm = ig.game.spawnEntity( "EntitySpiralArm", this.pos.x, this.pos.y, this.spiralArmArgs );
+            spiralArm.rotation = startRotation;
+            return spiralArm;
+        },
+
+        kill : function() {
+          this.parent();
+          for( var i = 0; i < this.spiralArms.length; i++ ) {
+              this.spiralArms[i].kill();
+          }
+        },
+
+        update : function() {
+            this.parent();
+            for( var i = 0; i < this.spiralArms.length; i++ ) {
+                this.spiralArms[i].rotation += this.rotationSpeed;
+            }
+        }
     });
+
+});

@@ -11,7 +11,7 @@ ig.BeatHItem = ig.HudItem.extend({
 	beat : null,
 
 	//font: new ig.Font( 'media/04b03.font.png' ),
-	animSheet: new ig.AnimationSheet( 'media/beat/beat.png', 24, 24 ),
+	animSheet: new ig.AnimationSheet( 'media/beat/galaxy_beats.png', 96, 96 ),
 	animNames : ['fresh', 'struck', 'missed', 'past'],
 
 	init: function( beat ) {
@@ -21,8 +21,8 @@ ig.BeatHItem = ig.HudItem.extend({
         for( var i = 0; i < this.animNames.length; i++ ) {
             this.addAnim(this.animNames[i], 1, [i]);
         }
-		this.width = 24;
-		this.height = 24;
+		this.width  = this.animSheet.width;
+		this.height = this.animSheet.height;
 	},
 
     handleBeatStatusChange : function( oldStatus, newStatus ) {
