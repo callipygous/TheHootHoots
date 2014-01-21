@@ -19,7 +19,7 @@ ig.module(
     'game.song.FlatSongPlayer',
 
     'game.particles.BigBangParticle',
-    'game.obstacles.AutoAsteroidGenerator',
+    'game.obstacles.asteroid.AutoAsteroidGenerator',
 
     'game.player.Player',
 
@@ -37,6 +37,9 @@ TheHootHoots = ig.Game.extend({
 
     hud: new ig.Hud(),
 
+    asteroidImage : new ig.Image( 'media/asteroid.png' ),
+    strokeColor : "#704000",
+
     beatTrackAnimSheet : new ig.AnimationSheet( 'media/MilkyWay1024_shaved2.png', 155, 1024 ),
     beatTrackView : null,
 	// Load a font
@@ -45,6 +48,8 @@ TheHootHoots = ig.Game.extend({
 	bigBang : null,
     asteroidGenerator : null,
     player : null,
+
+    tmpSpike : null,
 
     //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
 
@@ -79,10 +84,9 @@ TheHootHoots = ig.Game.extend({
         this.metronome.start();
 
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
-        this.asteroidGenerator = new AutoAsteroidGenerator( 0.5, 50, 0.5, 600, 0.8 );
+        this.asteroidGenerator = new AutoAsteroidGenerator( "asteroidGen", 4, 0.5, 50, 0.5, 600, 0.8 );
 
-
-        new StarGrid();
+        //new StarGrid();
 
         var reverseSpiralArmArg = {
             radius : 6,
@@ -125,8 +129,8 @@ TheHootHoots = ig.Game.extend({
 
         this.spawnEntity("EntityNoiseLine", 200, 200, {
             name : "MyNoiseLine",
-            start : { x : 30,  y : 30  },
-            end   : { x : 400, y : 400 },
+            start : { x : 400, y : 100  },
+            end   : { x : 100, y : 400 },
 
             margin : 100
         });
@@ -162,6 +166,7 @@ TheHootHoots = ig.Game.extend({
 
         this.hud.draw();
         this.font.draw( TimeUtil.formatTime( this.timer.delta() ), x, y, ig.Font.ALIGN.CENTER );
+        //this.asteroidGenerator.debugDraw( { x: 0, y : 0} );
 	}
 });
 

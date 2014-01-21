@@ -7,11 +7,11 @@
  */
 
 ig.module(
-    'game.obstacles.ListAsteroidGenerator'
+    'game.obstacles.asteroid.ListAsteroidGenerator'
 )
 .requires(
-    'game.obstacles.Asteroid',
-    'game.obstacles.AsteroidGenerator'
+    'game.obstacles.asteroid.Asteroid',
+    'game.obstacles.asteroid.AsteroidGenerator'
 )
 .defines(function () {
 

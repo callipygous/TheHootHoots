@@ -7,11 +7,11 @@
  */
 
 ig.module(
-    'game.obstacles.AutoAsteroidGenerator'
+    'game.obstacles.asteroid.AutoAsteroidGenerator'
 )
 .requires(
-    'game.obstacles.Asteroid',
-    'game.obstacles.AsteroidGenerator'
+    'game.obstacles.asteroid.Asteroid',
+    'game.obstacles.asteroid.AsteroidGenerator'
 )
 .defines(function () {
 
@@ -20,7 +20,7 @@ ig.module(
         //To make this a useful game mode we should probably make this more nuanced
         //but this is fine for testing
         frequency : null,
-        baseSize : null,
+        radius : null,
         sizeVariance : null,
         baseSpeed : null,
         speedVariance : null,
@@ -31,10 +31,15 @@ ig.module(
         notRights : null,
         notBottoms : null,
         notLefts : null,
+        scratchImage : null,
+        scratchWidth : null,
+        scratchHeight : null,
 
-        init: function ( frequency, baseSize, sizeVariance, baseSpeed, speedVariance ) {
+        init: function ( id, sheetWidth, frequency, radius, sizeVariance, baseSpeed, speedVariance ) {
+            this.parent( id, sheetWidth, 40, 0.5, radius );
+
             this.frequency = frequency;
-            this.baseSize  = baseSize;
+            this.radius  = radius;
             this.sizeVariance = sizeVariance;
             this.baseSpeed = baseSpeed;
             this.speedVariance = speedVariance;
@@ -48,6 +53,7 @@ ig.module(
         },
 
         update : function() {
+            this.parent();
             var delta = this.timer.delta();
 
 
@@ -65,14 +71,15 @@ ig.module(
                     end     = this.choosePositionOnWall( endWall );
                 }
 
-                var radius = MathUtil.rollVariation( this.baseSize, this.sizeVariance );
+                var sizeType = MathUtil.chooseOne(["large", "medium", "small"]);
+                var offsetMagnitude = this.offsetMagnitude( sizeType );
+
                 var speed = MathUtil.rollVariation( this.baseSpeed, this.speedVariance );
-
-                this.generate({
-                    speed : speed, start : start, end : end, radius : radius,
-                    delay  : 5,  variance : 0.5, numPoints : 40, img : this.asteroidImage, strokeColor : '#704000'
-                });
-
+                this.generate(
+                    { speed : speed, start : { x : start.x - offsetMagnitude, y : start.y - offsetMagnitude},
+                      end : end,  delay  : 5,  variance : 0.5, radiansPerSecond : 0.6 },
+                    sizeType
+                );
             }
         },
 
@@ -111,10 +118,6 @@ ig.module(
                 values = this.notBottoms;
             } else {
                 values = this.notLefts;
-            }
-
-            if( TypeUtil.isEmpty( values ) ) {
-                console.log("WALL " + wall );
             }
 
             return MathUtil.chooseOne( values );

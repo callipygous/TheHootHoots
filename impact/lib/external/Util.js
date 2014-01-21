@@ -50,6 +50,19 @@ var TypeUtil = {
 };
 
 var MathUtil = {
+
+    clamp : function( value, min, max ) {
+        if( value < min ) {
+            return min;
+        }
+
+        if( value > max ) {
+            return max;
+        }
+
+        return value;
+    },
+
     rollVariation : function(value, variance) {
         var maxVariance = value * variance;
         return value + ( maxVariance * 2 * Math.random() ) - maxVariance;
@@ -167,7 +180,7 @@ var MathUtil = {
     },
 
     chooseOne : function( values ) {
-        return values[Math.floor( Math.random() * values.length )];
+        return values[Math.floor( Math.random() * (values.length-1) )];
     },
 
     angleToVector : function( angle ) {
@@ -351,10 +364,13 @@ var ResourceUtil = {
 
         var resources = $("#img-resources")[0];
         var canvas = $('<canvas/>', { 'id': id });
-        canvas.width( width )
-        canvas.height( height );
+        canvas.width = width;
+        canvas.height = height;
+        canvas.css( "height: " + height + "; width: " + width );
         $( resources ).append( canvas );
         var canvas2 = $( "#" + id )[0];
+        canvas2.width  = width;
+        canvas2.height = height;
         $( canvas2 ).css("display:none;");
         return canvas2;
     },
