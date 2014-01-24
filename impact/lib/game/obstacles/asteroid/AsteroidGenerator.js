@@ -151,19 +151,23 @@ ig.module(
             var stencilInfo = null;
             if( size == 'large' ) {
                 stencilInfo = this.pickLarge();
+                asteroidDef.health = 100;
 
             } else if( size == 'medium' ) {
                 stencilInfo = this.pickMedium();
+                asteroidDef.health = 50;
 
             } else if( size == 'small' ) {
                 stencilInfo = this.pickSmall();
+                asteroidDef.health = 25;
             }
 
             asteroidDef.src = stencilInfo.pos;
+            asteroidDef.size = stencilInfo.size;
             asteroidDef.imageSize = stencilInfo.size;
             asteroidDef.stencilImage = this.stencilSheet.scratch;
             asteroidDef.imgOffset = stencilInfo.pos;
-            asteroidDef.radius = this.radius - this.radius * this.variance;
+            asteroidDef.radius = this.radius /*- this.radius * this.variance*/;
 
             stencilSheet.addReference( stencilInfo.id );
             asteroidDef.deathCallback = function() {

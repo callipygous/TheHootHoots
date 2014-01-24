@@ -213,6 +213,27 @@ var MathUtil = {
 
     distToSegment : function (point, start, end) {
         return Math.sqrt(MathUtil.distToSegmentSquared(point, start, end));
+    },
+
+    center : function( position, size ) {
+        return { x : position.x + parseInt( size.x / 2 ), y : position.y + parseInt( size.y / 2 ) };
+    }
+};
+
+var ScreenUtil = {
+
+    onScreen : function( entity, buffer ) {
+        var pos = entity.pos;
+        if( TypeUtil.isEmpty( buffer ) ) {
+            if( TypeUtil.isEmpty( entity.exitBuffer ) ) {
+                buffer = entity.size.x * 3;
+            } else {
+                buffer = entity.exitBuffer;
+            }
+        }
+
+        return !( pos.x < -buffer || pos.y < -buffer || pos.x > ig.system.width + buffer ||
+                  pos.y > ( ig.system.height + buffer ) );
     }
 };
 
@@ -222,14 +243,7 @@ var CombatUtil = {
 
     },
 
-    /**
-     * Util to determine which entities are within range of a given tower.
-     *
-     * @param type      The type being detected
-     * @param tower     The tower entity
-     * @returns {Array} The array of entities within range of the tower
-     */
-    getEntitiesInRange: function(type,tower) {
+    getEntitiesInRange: function( type, entity, range) {
 
         var arrTestEntities = [];
         var arrEntitiesInRange = [];
@@ -237,10 +251,10 @@ var CombatUtil = {
         arrTestEntities = ig.game.getEntitiesByType(type);
 
         if(arrTestEntities.length != 0){
-            for(var i=0;i<arrTestEntities.length;i++){
+            for( var i = 0; i < arrTestEntities.length; i++ ){
                 var testObject = arrTestEntities[i];
-                if(testObject != undefined && testObject != null){
-                    if(tower.distanceTo(testObject) <= tower.range){
+                if( testObject != undefined && testObject != null ){
+                    if( entity.distanceTo(testObject) <=range ){
                         arrEntitiesInRange.push(testObject);
                     }
                 }

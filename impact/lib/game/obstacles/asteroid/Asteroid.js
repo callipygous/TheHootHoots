@@ -8,6 +8,9 @@ ig.module(
 
     EntityAsteroid = EntityStenciledEntity.extend({
 
+        //if this is an asteroid that should interact with the player/lasers (i.e. non-decorative)
+        isLive : true,
+
         //The location this asteroid starts from
         start : null,
 
@@ -85,6 +88,9 @@ ig.module(
                 this.opacity = originalOpacity * opacity;
             }
             this.parent();
+
+//            ig.system.context.strokeStyle = "red";
+//            ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
 
             this.opacity = originalOpacity;
         },

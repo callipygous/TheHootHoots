@@ -57,31 +57,35 @@ ig.module(
      *         report an off target hit
      */
      handleStruckBeats : function() {
+        this.fireBeatLogic( ig.input.pressed('beat') );
+     },
+
+     fireBeatLogic : function( pressed ) {
          var hsBeats = this.beatTrack.inHotSpot();
          var unhandledHsBeat = null;
          var missedHsBeat = null;
 
          for(var i = 0; i < hsBeats.length && unhandledHsBeat == null; i++) {
-            if( !hsBeats[i].handled ) {
-                unhandledHsBeat = hsBeats[i];
-            }
+             if( !hsBeats[i].handled ) {
+                 unhandledHsBeat = hsBeats[i];
+             }
 
-            //We don't want to punish people twice for mashing down on a fumbled beat
-            if( hsBeats[i].status == BeatStatus.MISSED ) {
-              missedHsBeat = hsBeats[i];
-            }
+             //We don't want to punish people twice for mashing down on a fumbled beat
+             if( hsBeats[i].status == BeatStatus.MISSED ) {
+                 missedHsBeat = hsBeats[i];
+             }
          }
 
-         if( ig.input.pressed('space') ) {
-            if(unhandledHsBeat != null) {
-                this.beatEventHandler.onTarget([unhandledHsBeat]);
-                unhandledHsBeat.handled = true;
-            } else {
-                if( missedHsBeat == null ) {
-                    this.beatEventHandler.offTarget();
-                    this.handleFumbledBeats();
-                }
-            }
+         if( pressed ) {
+             if(unhandledHsBeat != null) {
+                 this.beatEventHandler.onTarget([unhandledHsBeat]);
+                 unhandledHsBeat.handled = true;
+             } else {
+                 if( missedHsBeat == null ) {
+                     this.beatEventHandler.offTarget();
+                     this.handleFumbledBeats();
+                 }
+             }
          }
          unhandledHsBeat = null;
      },

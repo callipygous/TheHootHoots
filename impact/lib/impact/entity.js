@@ -171,9 +171,8 @@ ig.Entity = ig.Class.extend({
 		
 		this.pos = res.pos;
 	},
-	
-	
-	draw: function() {
+
+    draw: function() {
 		if( this.currentAnim ) {
 			this.currentAnim.draw(
 				this.pos.x - this.offset.x - ig.game._rscreen.x,

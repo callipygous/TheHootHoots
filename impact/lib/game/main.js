@@ -10,7 +10,9 @@ ig.module(
     'game.beat.BeatTrackLogic',
     'game.beat.BeatTrack',
     'game.beat.BeatEventLogic',
+    'game.beat.PowerMeterBeatEventLogic',
 
+    'game.hud.Barmeter',
     'game.hud.Hud',
     'game.hud.HudItem',
     'game.time.Metronome',
@@ -22,6 +24,7 @@ ig.module(
     'game.obstacles.asteroid.AutoAsteroidGenerator',
 
     'game.player.Player',
+    'game.player.HealthMarker',
 
     'game.particles.SpiralArm',
     'game.particles.SpiralParticle',
@@ -29,7 +32,10 @@ ig.module(
     'game.util.WritableImage',
 
     'game.particles.NoiseLine',
-    'game.particles.StarGrid'
+    'game.particles.StarGrid',
+
+    'game.weapons.FiringLogic',
+    'game.weapons.Glasses'
 )
 .defines(function(){
 
@@ -41,7 +47,10 @@ TheHootHoots = ig.Game.extend({
     strokeColor : "#704000",
 
     beatTrackAnimSheet : new ig.AnimationSheet( 'media/MilkyWay1024_shaved2.png', 155, 1024 ),
+
+    beatTrack     : null,
     beatTrackView : null,
+
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
     timer : null,
@@ -49,15 +58,21 @@ TheHootHoots = ig.Game.extend({
     asteroidGenerator : null,
     player : null,
 
+    firingLogic : null,
+    weapon : null,
+    powerMeter : null,
+    powerStats : { maxPower : 100, power : 0 },
+    weaponCost : { baseCost : 10, streakCost : 5, getCurrentCost : function() { return this.baseCost; } },
+
     tmpSpike : null,
 
     //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
 
 	init: function() {
         this.timer = new ig.Timer();
-        ig.input.state("CanvasTouch");
-        ig.input.bind( ig.KEY.SPACE, 'space' );
-        ig.input.bind( ig.KEY.MOUSE1, "CanvasTouch" );
+        ig.input.bind( ig.KEY.SPACE, 'beat' );
+        ig.input.bind( ig.KEY.MOUSE1, 'fire' );
+        ig.input.bind( ig.KEY.G, 'god' );
         ig.input.initMouse();
 
         //var hotSpot     = { start : 0.94, end : 0.99 };
@@ -65,7 +80,9 @@ TheHootHoots = ig.Game.extend({
         var hotSpot     = { start : 0.70, end : 0.75 };
         var destroySpot = { start : 1.0,  end : 10.0 };
 
-        this.beatEventLogic = new ig.BeatEventLogic(null);
+        this.weapon = new Glasses( this.powerStats, this.weaponCost );
+        this.firingLogic = new FiringLogic( this.weapon );
+        this.beatEventLogic = new ig.PowerMeterBeatEventLogic( 5, this.powerStats );
 
         this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot, fumblePerc );
         this.beatTrackView = new ig.BeatTrackView( 100, 0, 100, 1024, this.beatTrackAnimSheet, this.beatTrack );
@@ -110,23 +127,6 @@ TheHootHoots = ig.Game.extend({
             ]
         };
 
-        this.spawnEntity("EntitySpiralParticle", 400, 400, {
-            opacity : 1,
-            radius :6,
-
-            colorStops : [
-                new ColorStop(0,    { r: 255, g : 20,  b : 20,  a : 1     } ),
-                new ColorStop(0.65, { r: 255, g : 10,  b : 10,  a : 0.75  } ),
-                new ColorStop(0.85, { r: 255, g : 10,  b : 10,  a : 0.50  } ),
-                new ColorStop(1,    { r: 255, g : 0,   b : 0,   a : 0     } ),
-            ],
-
-            //noiseOpacity : 0.25,
-            spiralArmArgs : reverseSpiralArmArg,
-            numberOfArms : 5,
-            rotationSpeed : -0.007
-        });
-
         this.spawnEntity("EntityNoiseLine", 200, 200, {
             name : "MyNoiseLine",
             start : { x : 400, y : 100  },
@@ -135,7 +135,30 @@ TheHootHoots = ig.Game.extend({
             margin : 100
         });
 
-        this.player = this.spawnEntity( "EntityPlayer", 100, 100 );
+        this.spawnEntity("EntitySpiralParticle", 400, 400, {
+            opacity : 1,
+            radius :6,
+
+            colorStops : [
+                new ColorStop(0,    { r: 255, g : 20,  b : 20,  a : 1     } ),
+                new ColorStop(0.65, { r: 255, g : 10,  b : 10,  a : 0.75  } ),
+                new ColorStop(0.85, { r: 255, g : 10,  b : 10,  a : 0.50  } ),
+                new ColorStop(1,    { r: 255, g : 0,   b : 0,   a : 0     } )
+            ],
+
+            //noiseOpacity : 0.25,
+            spiralArmArgs : reverseSpiralArmArg,
+            numberOfArms : 5,
+            rotationSpeed : -0.007
+        });
+
+        this.player = this.spawnEntity( "EntityPlayer", 100, 100, { health : 3 } );
+        for( var i = 1; i < 4; i++ ) {
+            this.spawnEntity( "EntityHealthMarker", 50 + ( 120 * i ), 20, { healthLevel : i } );
+        }
+
+        this.powerMeter = new ig.BarMeter( ig.system.width - 50, 40, 40, 800, false, 'blue', '#00CC00', 5, 0.4 );
+        this.hud.addItem( "power", this.powerMeter );
     },
 	
 	update: function() {
@@ -148,11 +171,20 @@ TheHootHoots = ig.Game.extend({
             this.bigBang.bang();
         }
 
+        if ( ig.input.pressed('god') ) {
+            this.powerStats.power = this.powerStats.maxPower;
+        }
+
+        //needs to happen before entity updates
+        this.weapon.update();
+
 		// Update all entities and backgroundMaps
 		this.parent();
+        this.firingLogic.update();
 		this.metronome.update();
         this.asteroidGenerator.update();
 		// Add your own, additional update code here
+        this.powerMeter.setPerc( this.powerStats.power / this.powerStats.maxPower );
 	},
 	
 	draw: function() {
