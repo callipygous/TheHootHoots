@@ -72,8 +72,10 @@ ig.BeatTrackView = ig.HudItem.extend({
         var startY = this.pos.y + (this.vec.y * interval.start);
         var height = (this.vec.y * ( interval.end - interval.start) );
         var context = ig.system.context;
+        context.save();
         context.fillStyle = color;
         context.fillRect(startX, startY, width, height);
+        context.restore();
     }
 });
 

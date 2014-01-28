@@ -146,7 +146,6 @@ ig.module(
          * @param end
          */
         generate : function( asteroidDef, size ) {
-            this.stencilSheet.scratch
             var stencilSheet = this.stencilSheet;
             var stencilInfo = null;
             if( size == 'large' ) {
@@ -162,6 +161,7 @@ ig.module(
                 asteroidDef.health = 25;
             }
 
+            asteroidDef.stencil = stencilInfo.currentStencil;
             asteroidDef.src = stencilInfo.pos;
             asteroidDef.size = stencilInfo.size;
             asteroidDef.imageSize = stencilInfo.size;

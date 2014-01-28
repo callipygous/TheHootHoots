@@ -36,7 +36,7 @@ ig.BarMeter = ig.HudItem.extend({
 	
 	draw: function() {
 		this.parent();
-		
+		ig.system.context.save();
 		var context = ig.system.context;
 		
 		
@@ -68,6 +68,8 @@ ig.BarMeter = ig.HudItem.extend({
         context.lineWidth = this.strokeWidth;
         context.strokeStyle = this.strokeColor;
         context.strokeRect( outlineX, outlineY, this.width, this.height );
+
+        ig.system.context.restore();
 	}
 });
 

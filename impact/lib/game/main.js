@@ -65,6 +65,7 @@ TheHootHoots = ig.Game.extend({
     weaponCost : { baseCost : 10, streakCost : 5, getCurrentCost : function() { return this.baseCost; } },
 
     tmpSpike : null,
+    //song : new ig.Sound('media/music/Home.mp3'),
 
     //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
 
@@ -159,6 +160,12 @@ TheHootHoots = ig.Game.extend({
 
         this.powerMeter = new ig.BarMeter( ig.system.width - 50, 40, 40, 800, false, 'blue', '#00CC00', 5, 0.4 );
         this.hud.addItem( "power", this.powerMeter );
+
+
+        ig.music.add( 'media/music/Home.mp3', 'Home' );
+
+        ig.music.volume = 1;
+        ig.music.play( 'Home' );
     },
 	
 	update: function() {

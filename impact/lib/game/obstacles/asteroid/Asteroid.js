@@ -47,6 +47,8 @@ ig.module(
 
         deathCallback : null,
 
+        diameter : null,
+
         init: function ( x, y, settings ) {
             this.parent( x, y, settings );
             this.start = { x : x, y : y };
@@ -56,6 +58,8 @@ ig.module(
             this.releaseVelocity = vector;
             this.maxVel.x = 100000;
             this.maxVel.y = 100000;
+
+            this.diameter = this.radius * 2;
 
             var bufferSize = 3 * this.radius;
             this.minKillPos = { x : -bufferSize, y : -bufferSize };
@@ -71,6 +75,30 @@ ig.module(
                 this.vel.y = this.releaseVelocity.y;
                 this.released = true;
             }
+
+//            if( this.released && this.isLive ) {
+//                var player = ig.game.player;
+//
+//                if( MathUtil.distanceTo(this.pos, player.pos) < player.size.x + this.diameter ) {
+//                    var minBound = { x : player.pos.x + player.collisionOffset.x,
+//                                     y : player.pos.y + player.collisionOffset.y };
+//
+//                    var maxBound = { x : minBound.x + player.collisionSize.x,
+//                                     y : minBound.y + player.collisionSize.y };
+//                    var points = this.stencil.points;
+//
+//                    var current;
+//
+//                    for( var i = 0; i < points.length; i++ ) {
+//                        current = MathUtil.translate( points[i], this.pos.x, this.pos.y );
+//
+//                        if( MathUtil.isBoundedBy( current, minBound, maxBound ) ) {
+//                            player.collideWithAsteroid( this );
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
 
             if( this.pos.x < this.minKillPos.x || this.pos.x > this.maxKillPos.x ||
                 this.pos.y < this.minKillPos.y || this.pos.y > this.maxKillPos.y ) {

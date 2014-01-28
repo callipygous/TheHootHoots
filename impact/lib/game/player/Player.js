@@ -14,6 +14,8 @@ ig.module(
         halfWidth  : 108,
         halfHeight : 77,
         zIndex : -100,
+        collisionBoxes  : [{ size : { x: 195, y : 50 }, offset : { x : 07,  y : 78 }},
+                           { size : { x:  90, y : 50 }, offset : { x : 110, y : 28 }}],
 
         init: function ( x, y, settings ) {
             this.addAnim( "flight", 0.5, [ 27 ]);
@@ -37,19 +39,52 @@ ig.module(
             return { x : this.pos.x + this.size.x, y : this.pos.y + this.size.y / 2.5 };
         },
 
-        checkForHit : function () {
-
-            var asteroids = this.glasses.asteroids;
-            for( var i = 0; i < asteroids.length; i++ ) {
-                var asteroid = asteroids[i];
-                if( asteroid.isLive && asteroid.released ) {
-                    var distance = MathUtil.distanceTo( this.pos, MathUtil.center( asteroid.pos, asteroid.size ) );
-                    var limit =  asteroid.radius + this.radius + ( asteroid.variance * asteroid.radius / 2 );
-                    if( distance < limit ) {
-                        this.hit( asteroid );
-                    }
-                }
+        collideWithAsteroid : function ( asteroid ) {
+            if( this.health > 0 ) {
+                this.health -= 1;
+                asteroid.kill();
             }
+        },
+
+        draw : function() {
+            this.parent();
+
+            ig.system.context.save();
+            ig.system.context.strokeStyle = "green";
+            ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y );
+
+            var bounds = this.getCollisionBounds();
+
+            for( var i = 0; i < bounds.length; i++ ) {
+                var bound = bounds[i];
+                var start = bound.min;
+                var widthX = bound.max.x - start.x;
+                var widthY = bound.max.y - start.y;
+
+   //             ig.system.context.strokeStyle = "blue";
+   //             ig.system.context.strokeRect( start.x, start.y, widthX, widthY );
+            }
+
+            ig.system.context.restore();
+        },
+
+        collisionBoxToBound : function( collisionBox ) {
+
+            var minBound = { x : this.pos.x + collisionBox.offset.x,
+                             y : this.pos.y + collisionBox.offset.y };
+
+            var maxBound = { x : minBound.x + collisionBox.size.x,
+                             y : minBound.y + collisionBox.size.y };
+
+            return { min : minBound, max : maxBound };
+        },
+
+        getCollisionBounds : function() {
+            var boxes = [];
+            for( var i = 0; i < this.collisionBoxes.length; i++ ) {
+                boxes.push( this.collisionBoxToBound( this.collisionBoxes[i] ) );
+            }
+            return boxes;
         }
     });
 
