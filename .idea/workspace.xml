@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="57db1b17-f794-49e4-9279-6a41a91f0cf6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" afterPath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js" afterPath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/hud/Barmeter.js" afterPath="$PROJECT_DIR$/impact/lib/game/hud/Barmeter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/player/Player.js" afterPath="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/main.js" afterPath="$PROJECT_DIR$/impact/lib/game/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/external/Util.js" afterPath="$PROJECT_DIR$/impact/lib/external/Util.js" />
     </list>
     <ignored path="TheHootHoots.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,19 +30,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Asteroid.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Asteroid.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="27" selection-start="3809" selection-end="3809" vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2363">
+            <state line="119" column="44" selection-start="4151" selection-end="4157" vertical-scroll-proportion="0.7407407" vertical-offset="1803" max-vertical-offset="2635">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsteroidGenerator.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="222" column="10" selection-start="6319" selection-end="6325" vertical-scroll-proportion="-0.65384614" vertical-offset="3757" max-vertical-offset="7293">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AsteroidGenerator.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="50" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.10526316" vertical-offset="2465" max-vertical-offset="3587">
+            <state line="147" column="50" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3587">
               <folding />
             </state>
           </provider>
@@ -73,7 +78,7 @@
       <file leaf-file-name="StenciledEntity.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1937" selection-end="1937" vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="1241">
+            <state line="7" column="8" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
               <folding />
             </state>
           </provider>
@@ -91,7 +96,7 @@
       <file leaf-file-name="Player.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/player/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="3" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.0" vertical-offset="1239" max-vertical-offset="1632">
+            <state line="74" column="45" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="1581">
               <folding />
             </state>
           </provider>
@@ -100,7 +105,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="10" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0" vertical-offset="2635" max-vertical-offset="4369">
+            <state line="156" column="10" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="4369">
               <folding />
             </state>
           </provider>
@@ -110,15 +115,6 @@
         <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="81" column="3" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.0" vertical-offset="934" max-vertical-offset="1479">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Barmeter.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/Barmeter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="1833" selection-end="1870" vertical-scroll-proportion="0.0" vertical-offset="992" max-vertical-offset="1377">
               <folding />
             </state>
           </provider>
@@ -182,16 +178,16 @@
         <option value="$PROJECT_DIR$/impact/lib/impact/entity.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js" />
-        <option value="$PROJECT_DIR$/impact/lib/external/Util.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/weapons/Glasses.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/weapons/GlassesBlast.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/player/HealthMarker.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/hud/Barmeter.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/main.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
+        <option value="$PROJECT_DIR$/impact/lib/external/Util.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" />
       </list>
     </option>
   </component>
@@ -227,6 +223,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -366,6 +363,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="time" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -553,7 +576,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -567,6 +589,22 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="SearchEverywhereHistory" value="" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="121" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="139" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="824" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="143" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="131" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="138" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="817" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -584,6 +622,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -594,12 +640,8 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -607,10 +649,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -650,9 +688,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="699" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -661,7 +699,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277027" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924694" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -686,7 +724,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -889,11 +927,6 @@
         <state line="304" column="28" selection-start="7146" selection-end="7146" vertical-scroll-proportion="0.0" vertical-offset="4660" max-vertical-offset="5627" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="4" selection-start="2142" selection-end="2142" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="6970" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/SpikedBallStencil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="91" column="40" selection-start="3084" selection-end="3084" vertical-scroll-proportion="0.0" vertical-offset="1036" max-vertical-offset="2397">
@@ -929,27 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1937" selection-end="1937" vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/player/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="3" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.0" vertical-offset="1239" max-vertical-offset="1632">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="10" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0" vertical-offset="2635" max-vertical-offset="4369">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="3" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.0" vertical-offset="1094" max-vertical-offset="1479">
@@ -957,16 +969,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="27" selection-start="3809" selection-end="3809" vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2363">
+        <state line="147" column="50" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3587">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="50" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.10526316" vertical-offset="2465" max-vertical-offset="3587">
+        <state line="156" column="10" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="4369">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/player/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="45" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="1581">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="8" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="10" selection-start="6319" selection-end="6325" vertical-scroll-proportion="-0.65384614" vertical-offset="3757" max-vertical-offset="7293">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="44" selection-start="4151" selection-end="4157" vertical-scroll-proportion="0.7407407" vertical-offset="1803" max-vertical-offset="2635">
           <folding />
         </state>
       </provider>

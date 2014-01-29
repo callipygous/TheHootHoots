@@ -76,29 +76,29 @@ ig.module(
                 this.released = true;
             }
 
-//            if( this.released && this.isLive ) {
-//                var player = ig.game.player;
-//
-//                if( MathUtil.distanceTo(this.pos, player.pos) < player.size.x + this.diameter ) {
-//                    var minBound = { x : player.pos.x + player.collisionOffset.x,
-//                                     y : player.pos.y + player.collisionOffset.y };
-//
-//                    var maxBound = { x : minBound.x + player.collisionSize.x,
-//                                     y : minBound.y + player.collisionSize.y };
-//                    var points = this.stencil.points;
-//
-//                    var current;
-//
-//                    for( var i = 0; i < points.length; i++ ) {
-//                        current = MathUtil.translate( points[i], this.pos.x, this.pos.y );
-//
-//                        if( MathUtil.isBoundedBy( current, minBound, maxBound ) ) {
-//                            player.collideWithAsteroid( this );
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
+            if( this.released && this.isLive ) {
+                var player = ig.game.player;
+
+                if( MathUtil.distanceTo(this.pos, player.pos) < player.size.x + this.diameter ) {
+                    var bounds = ig.game.player.getCollisionBounds();
+                    var points = this.stencil.points;
+
+                    var current;
+
+                    for( var i = 0; i < points.length; i++ ) {
+                        current = MathUtil.translateInPlace(
+                            MathUtil.rotate( points[i], this.currentAngle, { x : -this.imgOffset.x, y : -this.imgOffset.y } ),
+                            this.pos.x - this.imgOffset.x, this.pos.y - this.imgOffset.y );
+
+                        for( var j = 0; j < bounds.length; j++ ) {
+                            if( MathUtil.isBoundedBy( current, bounds[j].min, bounds[j].max ) ) {
+                                player.collideWithAsteroid( this );
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
 
             if( this.pos.x < this.minKillPos.x || this.pos.x > this.maxKillPos.x ||
                 this.pos.y < this.minKillPos.y || this.pos.y > this.maxKillPos.y ) {
@@ -117,6 +117,22 @@ ig.module(
             }
             this.parent();
 
+            var radius = this.stencil.radius;
+            var points = this.stencil.points;
+
+            var current;
+
+            ig.system.context.fillStyle = "green";
+            ig.system.context.fillRect(this.pos.x, this.pos.y, 2, 2);
+
+            for( var i = 0; i < points.length; i++ ) {
+                current = MathUtil.translate( points[i], -this.imgOffset.x, -this.imgOffset.y - radius );
+                current = MathUtil.translateInPlace( MathUtil.rotate( current, this.currentAngle),
+                    this.pos.x, this.pos.y );
+
+                ig.system.context.fillStyle = "red";
+                ig.system.context.fillRect(current.x, current.y, 2, 2);
+            }
 //            ig.system.context.strokeStyle = "red";
 //            ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
 

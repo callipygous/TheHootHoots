@@ -39,13 +39,6 @@ ig.module(
             return { x : this.pos.x + this.size.x, y : this.pos.y + this.size.y / 2.5 };
         },
 
-        collideWithAsteroid : function ( asteroid ) {
-            if( this.health > 0 ) {
-                this.health -= 1;
-                asteroid.kill();
-            }
-        },
-
         draw : function() {
             this.parent();
 
@@ -54,37 +47,41 @@ ig.module(
             ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y );
 
             var bounds = this.getCollisionBounds();
-
             for( var i = 0; i < bounds.length; i++ ) {
                 var bound = bounds[i];
                 var start = bound.min;
                 var widthX = bound.max.x - start.x;
                 var widthY = bound.max.y - start.y;
 
-   //             ig.system.context.strokeStyle = "blue";
-   //             ig.system.context.strokeRect( start.x, start.y, widthX, widthY );
+                ig.system.context.strokeStyle = "blue";
+                ig.system.context.strokeRect( start.x, start.y, widthX, widthY );
             }
 
             ig.system.context.restore();
         },
 
-        collisionBoxToBound : function( collisionBox ) {
-
-            var minBound = { x : this.pos.x + collisionBox.offset.x,
-                             y : this.pos.y + collisionBox.offset.y };
-
-            var maxBound = { x : minBound.x + collisionBox.size.x,
-                             y : minBound.y + collisionBox.size.y };
-
-            return { min : minBound, max : maxBound };
+        //For some reason if we create bound within collisionBoxToBound we end up crashing chrome
+        collisionBoxToBound : function ( collisionBox, bound ) {
+            bound.min.x = this.pos.x + collisionBox.offset.x;
+            bound.min.y = this.pos.y + collisionBox.offset.y;
+            bound.max.x = bound.min.x + collisionBox.size.x;
+            bound.max.y = bound.min.y + collisionBox.size.y;
+            return bound;
         },
 
         getCollisionBounds : function() {
             var boxes = [];
             for( var i = 0; i < this.collisionBoxes.length; i++ ) {
-                boxes.push( this.collisionBoxToBound( this.collisionBoxes[i] ) );
+                boxes.push( this.collisionBoxToBound( this.collisionBoxes[i], { min : { x : 0, y : 0}, max : {x : 0, y : 0} } ) );
             }
             return boxes;
+        },
+
+        collideWithAsteroid : function ( asteroid ) {
+            if( this.health > 0 ) {
+                this.health -= 1;
+                asteroid.kill();
+            }
         }
     });
 

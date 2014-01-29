@@ -171,6 +171,7 @@ var MathUtil = {
     translateInPlace : function( point, transX, transY ) {
         point.x += transX;
         point.y += transY;
+        return point;
     },
 
     translate : function( point, transX, transY ) {
@@ -217,6 +218,24 @@ var MathUtil = {
 
     center : function( position, size ) {
         return { x : position.x + parseInt( size.x / 2 ), y : position.y + parseInt( size.y / 2 ) };
+    },
+
+    rotate : function( point, angle, translation ) {
+        var newPoint;
+
+        var retPoint = { };
+        if( TypeUtil.isEmpty(translation) ) {
+            newPoint = point;
+            retPoint.x = newPoint.x * Math.cos( angle ) - newPoint.y * Math.sin( angle );
+            retPoint.y = newPoint.x * Math.sin( angle ) + newPoint.y * Math.cos( angle );
+        } else {
+            newPoint = MathUtil.translate( point, translation.x, translation.y );
+            retPoint.x = newPoint.x * Math.cos( angle ) - newPoint.y * Math.sin( angle );
+            retPoint.y = newPoint.x * Math.sin( angle ) + newPoint.y * Math.cos( angle );
+            MathUtil.translateInPlace( retPoint, translation.x, translation.y );
+        }
+
+        return retPoint;
     }
 };
 
