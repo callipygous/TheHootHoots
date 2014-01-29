@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="57db1b17-f794-49e4-9279-6a41a91f0cf6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" afterPath="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/player/Player.js" afterPath="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/external/Util.js" afterPath="$PROJECT_DIR$/impact/lib/external/Util.js" />
     </list>
     <ignored path="TheHootHoots.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +31,7 @@
       <file leaf-file-name="Asteroid.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="44" selection-start="4151" selection-end="4157" vertical-scroll-proportion="0.7407407" vertical-offset="1803" max-vertical-offset="2635">
+            <state line="95" column="41" selection-start="3348" selection-end="3348" vertical-scroll-proportion="0.82828283" vertical-offset="1369" max-vertical-offset="2737">
               <folding />
             </state>
           </provider>
@@ -78,7 +76,7 @@
       <file leaf-file-name="StenciledEntity.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="8" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
+            <state line="14" column="34" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
               <folding />
             </state>
           </provider>
@@ -990,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="222" column="10" selection-start="6319" selection-end="6325" vertical-scroll-proportion="-0.65384614" vertical-offset="3757" max-vertical-offset="7293">
@@ -1004,9 +995,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="34" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="44" selection-start="4151" selection-end="4157" vertical-scroll-proportion="0.7407407" vertical-offset="1803" max-vertical-offset="2635">
+        <state line="95" column="41" selection-start="3348" selection-end="3348" vertical-scroll-proportion="0.82828283" vertical-offset="1369" max-vertical-offset="2737">
           <folding />
         </state>
       </provider>
