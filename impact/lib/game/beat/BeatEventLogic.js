@@ -33,7 +33,7 @@ ig.BeatEventLogic = ig.Class.extend({
             beats[i].setStatus( BeatStatus.STRUCK );
             beats[i].handled = true;
         }
-        //this.levelStats.beat.value += beats.length;
+        this.streakLogic.onTarget( beats );
 	},
 	
 	/**

@@ -20,7 +20,7 @@ ig.module(
         },
 
         fire : function( start ) {
-            if( !ig.game.player.hidden ) {
+            if( ig.game.player.status == PlayerStatus.live ) {
                 if( this.powerStats.power >= this.costs.getCurrentCost() ) {
                     this.powerStats.power -= this.costs.getCurrentCost();
                     var angles = [-(Math.PI / 6), -0.25, 0, 0.25, (Math.PI / 6)];

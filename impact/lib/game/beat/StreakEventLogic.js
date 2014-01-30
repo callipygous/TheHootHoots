@@ -5,25 +5,20 @@ ig.module(
 .defines(function(){
 
 ig.StreakEventLogic = ig.Class.extend({
-	levelStats : null,
 	streak : 0,
 	onStreak : false,
 	nextStreakIndex : 0,
 	streakLimits : [],
-	spiritAdded : 1,
 	
-	init : function(levelStats) {
-		//this.levelStats = levelStats;
+	init : function( streakLimits ) {
+        this.streakLimits = streakLimits;
 	},
 		
 	onTarget : function(beats) {
 		this.streak += beats.length;
-		if(this.nextStreakIndex < this.streakLimits.length && this.streak > this.streakLimits[this.nextStreakIndex]) {
+
+		if(this.nextStreakIndex < this.streakLimits.length && this.streak >= this.streakLimits[this.nextStreakIndex]) {
 			this.nextStreak();
-		}
-		
-		if(this.onStreak) {
-			//this.levelStats.spirit += this.spiritAdded;
 		}
 	},
 	
@@ -37,14 +32,12 @@ ig.StreakEventLogic = ig.Class.extend({
 	
 	nextStreak : function() {
 		this.onStreak        = true;
-		this.spiritAdded     += 1;
 		this.nextStreakIndex += 1;
 	},
 	
 	resetStreak : function() {
 		this.streak          = 0;
 		this.onStreak        = false;
-		this.spiritAdded     = 1;
 		this.nextStreakIndex = 0;
 	}
 });

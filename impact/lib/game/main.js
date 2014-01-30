@@ -61,7 +61,9 @@ TheHootHoots = ig.Game.extend({
     firingLogic : null,
     weapon : null,
     powerMeter : null,
-    powerStats : { maxPower : 100, power : 0 },
+    oneUpMeter : null,
+    powerStats  : { maxPower : 100, power : 0 },
+    oneUpStats  : { max : 100, level : 0 },
     weaponCost : { baseCost : 10, streakCost : 5, getCurrentCost : function() { return this.baseCost; } },
 
     tmpSpike : null,
@@ -83,7 +85,7 @@ TheHootHoots = ig.Game.extend({
 
         this.weapon = new Glasses( this.powerStats, this.weaponCost );
         this.firingLogic = new FiringLogic( this.weapon );
-        this.beatEventLogic = new ig.PowerMeterBeatEventLogic( 5, this.powerStats );
+        this.beatEventLogic = new ig.PowerMeterBeatEventLogic( 5, this.powerStats, this.oneUpStats );
 
         this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot, fumblePerc );
         this.beatTrackView = new ig.BeatTrackView( 100, 0, 100, 1024, this.beatTrackAnimSheet, this.beatTrack );
@@ -158,9 +160,11 @@ TheHootHoots = ig.Game.extend({
             this.spawnEntity( "EntityHealthMarker", 50 + ( 120 * i ), 20, { healthLevel : i } );
         }
 
-        this.powerMeter = new ig.BarMeter( ig.system.width - 50, 40, 40, 800, false, 'blue', '#00CC00', 5, 0.4 );
+        this.powerMeter = new ig.BarMeter( ig.system.width - 50, 40, 30, 800, false, 'blue', '#00CC00', 3, 0.4 );
         this.hud.addItem( "power", this.powerMeter );
 
+        this.oneUpMeter = new ig.BarMeter( ig.system.width - 80, 40, 20, 800, false, 'red', '#666666', 2, 0 );
+        this.hud.addItem( "oneUp", this.oneUpMeter );
 
         ig.music.add( 'media/music/Home.mp3', 'Home' );
 
@@ -192,6 +196,7 @@ TheHootHoots = ig.Game.extend({
         this.asteroidGenerator.update();
 		// Add your own, additional update code here
         this.powerMeter.setPerc( this.powerStats.power / this.powerStats.maxPower );
+        this.oneUpMeter.setPerc( this.oneUpStats.level / this.oneUpStats.max );
 	},
 	
 	draw: function() {
