@@ -87,13 +87,8 @@ ig.module(
                     var bounds = ig.game.player.getCollisionBounds();
                     var points = this.stencil.points;
 
-                    var current;
-
                     for( var i = 0; i < points.length; i++ ) {
-                        current = MathUtil.translate( points[i], -this.imgOffset.x - this.halfSize.x, -this.imgOffset.y - this.halfSize.y );
-                        current = MathUtil.translateInPlace( MathUtil.rotate( current, this.currentAngle),
-                            this.pos.x, this.pos.y );
-                        MathUtil.translateInPlace( current, this.halfSize.x, this.halfSize.y );
+                        var current = this.rotateStencilPointInPlace( points[i] );
 
                         for( var j = 0; j < bounds.length; j++ ) {
                             if( MathUtil.isBoundedBy( current, bounds[j].min, bounds[j].max ) ) {
@@ -122,25 +117,7 @@ ig.module(
             }
             this.parent();
 
-            var radius = this.stencil.radius;
-            var points = this.stencil.points;
-
-            var current;
-
-            ig.system.context.fillStyle = "green";
-            ig.system.context.fillRect(this.pos.x, this.pos.y, 2, 2);
-
-            for( var i = 0; i < points.length; i++ ) {
-                current = MathUtil.translate( points[i], -this.imgOffset.x - this.halfSize.x, -this.imgOffset.y - this.halfSize.y );
-                current = MathUtil.translateInPlace( MathUtil.rotate( current, this.currentAngle),
-                    this.pos.x, this.pos.y );
-                MathUtil.translateInPlace( current, this.halfSize.x, this.halfSize.y );
-
-                ig.system.context.fillStyle = "red";
-                ig.system.context.fillRect(current.x, current.y, 2, 2);
-            }
-//            ig.system.context.strokeStyle = "red";
-//            ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
+            this.debugDraw();
 
             this.opacity = originalOpacity;
         },
@@ -150,6 +127,31 @@ ig.module(
                 this.deathCallback();
             }
             this.parent();
+        },
+
+        rotateStencilPointInPlace : function( point ) {
+            var newPoint = { x : point.x, y : point.y };
+            MathUtil.translateInPlace( newPoint, -this.imgOffset.x - this.halfSize.x, -this.imgOffset.y - this.halfSize.y );
+            newPoint = MathUtil.rotate( newPoint, this.currentAngle);
+            MathUtil.translateInPlace( newPoint, this.pos.x, this.pos.y );
+            MathUtil.translateInPlace( newPoint, this.halfSize.x, this.halfSize.y );
+            return newPoint;
+        },
+
+        debugDraw : function() {
+            var points = this.stencil.points;
+
+            ig.system.context.fillStyle = "green";
+            ig.system.context.fillRect(this.pos.x, this.pos.y, 2, 2);
+
+            for( var i = 0; i < points.length; i++ ) {
+                var current = this.rotateStencilPointInPlace( points[i] );
+
+                ig.system.context.fillStyle = "red";
+                ig.system.context.fillRect(current.x, current.y, 2, 2);
+            }
+            ig.system.context.strokeStyle = "blue";
+            ig.system.context.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
         }
     });
 
