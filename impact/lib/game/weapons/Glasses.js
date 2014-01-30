@@ -20,18 +20,20 @@ ig.module(
         },
 
         fire : function( start ) {
-            if( this.powerStats.power >= this.costs.getCurrentCost() ) {
-                this.powerStats.power -= this.costs.getCurrentCost();
-                var angles = [-(Math.PI / 6), -0.25, 0, 0.25, (Math.PI / 6)];
+            if( !ig.game.player.hidden ) {
+                if( this.powerStats.power >= this.costs.getCurrentCost() ) {
+                    this.powerStats.power -= this.costs.getCurrentCost();
+                    var angles = [-(Math.PI / 6), -0.25, 0, 0.25, (Math.PI / 6)];
 
-                for( var i = 0; i < angles.length; i++ ) {
-                    var vector = MathUtil.angleToScaledVector( angles[i], this.speed );
-                    var glasses = this;
-                    ig.game.spawnEntity( "EntityGlassesBlast", start.x, start.y, {
-                        vel : vector, maxVel : { x : 1000, y : 1000 }, angle : angles[i],
-                        glasses : glasses
-                    });
-                    this.blasts += 1;
+                    for( var i = 0; i < angles.length; i++ ) {
+                        var vector = MathUtil.angleToScaledVector( angles[i], this.speed );
+                        var glasses = this;
+                        ig.game.spawnEntity( "EntityGlassesBlast", start.x, start.y, {
+                            vel : vector, maxVel : { x : 1000, y : 1000 }, angle : angles[i],
+                            glasses : glasses
+                        });
+                        this.blasts += 1;
+                    }
                 }
             }
         },

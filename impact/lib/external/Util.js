@@ -51,6 +51,10 @@ var TypeUtil = {
 
 var MathUtil = {
 
+    magnitude : function( vector ) {
+        return Math.sqrt( vector.x * vector.x + vector.y + vector.y );
+    },
+
     clamp : function( value, min, max ) {
         if( value < min ) {
             return min;
@@ -166,6 +170,7 @@ var MathUtil = {
         var magnitude = Math.sqrt( vector.x * vector.x + vector.y + vector.y );
         vector.x /= magnitude;
         vector.y /= magnitude;
+        return vector;
     },
 
     translateInPlace : function( point, transX, transY ) {
@@ -200,7 +205,6 @@ var MathUtil = {
     dist2 : function(v, w) {
         return MathUtil.sqr(v.x - w.x) + MathUtil.sqr(v.y - w.y)
     },
-
 
     distToSegmentSquared : function(point, start, end) {
         var l2 = MathUtil.dist2(start, end);

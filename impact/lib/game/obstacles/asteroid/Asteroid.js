@@ -117,7 +117,7 @@ ig.module(
             }
             this.parent();
 
-            this.debugDraw();
+//            this.debugDraw();
 
             this.opacity = originalOpacity;
         },
