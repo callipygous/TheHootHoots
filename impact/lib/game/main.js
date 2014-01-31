@@ -156,7 +156,7 @@ TheHootHoots = ig.Game.extend({
         });
 
         this.player = this.spawnEntity( "EntityPlayer", 100, 100, { health : 3 } );
-        for( var i = 1; i < 4; i++ ) {
+        for( var i = 1; i <= this.player.maxHealth; i++ ) {
             this.spawnEntity( "EntityHealthMarker", 50 + ( 120 * i ), 20, { healthLevel : i } );
         }
 
@@ -186,6 +186,11 @@ TheHootHoots = ig.Game.extend({
             this.powerStats.power = this.powerStats.maxPower;
         }
 
+        if ( this.oneUpStats.level >= this.oneUpStats.max &&
+             this.player.tryGrantOneUp() ) {
+            this.oneUpStats.level = 0;
+        }
+
         //needs to happen before entity updates
         this.weapon.update();
 
@@ -197,6 +202,12 @@ TheHootHoots = ig.Game.extend({
 		// Add your own, additional update code here
         this.powerMeter.setPerc( this.powerStats.power / this.powerStats.maxPower );
         this.oneUpMeter.setPerc( this.oneUpStats.level / this.oneUpStats.max );
+
+        if( this.oneUpStats.level >= this.oneUpStats.max ) {
+            if( this.player.tryGrantOneUp() ) {
+                this.oneUpStats.level = 0;
+            }
+        }
 	},
 	
 	draw: function() {

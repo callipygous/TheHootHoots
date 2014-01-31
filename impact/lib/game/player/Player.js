@@ -25,6 +25,7 @@ ig.module(
         recoveryTime : 3,
         recoveryTimeLeft : 0,
 
+        maxHealth : 4,
 
         halfWidth  : 108,
         halfHeight : 77,
@@ -95,6 +96,9 @@ ig.module(
             return boxes;
         },
 
+        /**
+         * @param asteroid The Asteroid that has collided with the player
+         */
         collideWithAsteroid : function ( asteroid ) {
             if( this.health > 0 && this.status == PlayerStatus.live ) {
                 this.health -= 1; //do not use receiveDamage as it will kill this player
@@ -108,8 +112,8 @@ ig.module(
             this.status = PlayerStatus.dead;
             var vel = { x : asteroid.vel.x, y : asteroid.vel.y };
             var magnitude = MathUtil.magnitude( vel );
-            if( magnitude < 1000 ) {
-                MathUtil.scaleVectorInPlace( 1000, MathUtil.normalize( vel ) );
+            if( magnitude < 800 ) {
+                MathUtil.scaleVectorInPlace( 800, MathUtil.normalize( vel ) );
             }
 
             var angularSpeed;
@@ -156,6 +160,15 @@ ig.module(
             }
 
             ig.system.context.restore();
+        },
+
+        tryGrantOneUp : function() {
+            if( this.health < this.maxHealth ) {
+                this.health += 1;
+                return true;
+            }
+
+            return false;
         }
     });
 

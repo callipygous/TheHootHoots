@@ -52,7 +52,7 @@ var TypeUtil = {
 var MathUtil = {
 
     magnitude : function( vector ) {
-        return Math.sqrt( vector.x * vector.x + vector.y + vector.y );
+        return Math.sqrt( vector.x * vector.x + vector.y * vector.y );
     },
 
     clamp : function( value, min, max ) {
@@ -167,7 +167,7 @@ var MathUtil = {
     },
 
     normalize : function( vector ) {
-        var magnitude = Math.sqrt( vector.x * vector.x + vector.y + vector.y );
+        var magnitude = MathUtil.magnitude( vector );
         vector.x /= magnitude;
         vector.y /= magnitude;
         return vector;
