@@ -34,7 +34,13 @@ ig.Hud = ig.Class.extend({
 		
 		this.itemNames.splice(i, 1);
 		return this.items.splice(i, 1);
-	}
+	},
+
+    update : function() {
+        for( var i = 0; i < this.itemNames.length; i++ ) {
+            this.items[this.itemNames[i]].update();
+        }
+    }
 });
 
 });

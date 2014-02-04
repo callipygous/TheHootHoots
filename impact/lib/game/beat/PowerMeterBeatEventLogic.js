@@ -24,7 +24,7 @@ ig.module(
         onTarget : function( beats ) {
             this.parent( beats );
             if( this.streakLogic.streak >= 2 ) {
-                var value = Math.max(1, parseInt( this.streakLogic.streak ) / 3 ) * beats.length;
+                var value = Math.max(1, parseInt( this.streakLogic.streak ) * 10 ) * beats.length;
                 this.oneUpStats.level =  MathUtil.clamp( this.oneUpStats.level + value, 0, this.oneUpStats.max );
             }
             var beatValue =  beats.length * this.beatValue * this.multipliers[this.streakLogic.nextStreakIndex];

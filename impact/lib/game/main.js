@@ -16,6 +16,7 @@ ig.module(
     'game.hud.Hud',
     'game.hud.HudItem',
     'game.time.Metronome',
+    'game.hud.OneUpMeterGlow',
 
     'game.song.flatsongs.HeartBeat',
     'game.song.FlatSongPlayer',
@@ -29,6 +30,8 @@ ig.module(
     'game.particles.SpiralArm',
     'game.particles.SpiralParticle',
 
+    'game.util.Cheats',
+    'game.util.DeltaColor',
     'game.util.WritableImage',
 
     'game.particles.NoiseLine',
@@ -67,6 +70,8 @@ TheHootHoots = ig.Game.extend({
     weaponCost : { baseCost : 10, streakCost : 5, getCurrentCost : function() { return this.baseCost; } },
 
     tmpSpike : null,
+    cheating : true,
+    cheats : null,
     //song : new ig.Sound('media/music/Home.mp3'),
 
     //TODO: ANY CLICK ON THE MOUSE BUTTON WHEN YOU HAVE ENERGY IS A FREE STRIKE (WITH NO CONSEQUENCES)
@@ -75,7 +80,10 @@ TheHootHoots = ig.Game.extend({
         this.timer = new ig.Timer();
         ig.input.bind( ig.KEY.SPACE, 'beat' );
         ig.input.bind( ig.KEY.MOUSE1, 'fire' );
-        ig.input.bind( ig.KEY.G, 'god' );
+        if( this.cheating ) {
+            addCheats();
+            this.cheats = new Cheats();
+        }
         ig.input.initMouse();
 
         //var hotSpot     = { start : 0.94, end : 0.99 };
@@ -163,16 +171,23 @@ TheHootHoots = ig.Game.extend({
         this.powerMeter = new ig.BarMeter( ig.system.width - 50, 40, 30, 800, false, 'blue', '#00CC00', 3, 0.4 );
         this.hud.addItem( "power", this.powerMeter );
 
-        this.oneUpMeter = new ig.BarMeter( ig.system.width - 80, 40, 20, 800, false, 'red', '#666666', 2, 0 );
+        this.oneUpMeter = new ig.BarMeter( ig.system.width - 80, 40, 20, 800, false, 'red', '#666666', 2, 0,
+            new ig.OneUpMeterGlow( 2, ColorUtil.deltaColor( "#f0f060ff", "#606000ff", 2 ),
+                                      ColorUtil.deltaColor( "#002222ff", "#007777ff", 2 ) )
+        );
         this.hud.addItem( "oneUp", this.oneUpMeter );
 
         ig.music.add( 'media/music/Home.mp3', 'Home' );
 
         ig.music.volume = 1;
-        ig.music.play( 'Home' );
+        //ig.music.play( 'Home' );
     },
 	
 	update: function() {
+        if( this.cheats != null ) {
+            this.cheats.update();
+        }
+
         var delta = this.timer.delta();
         if( Math.floor( delta )  % 3 == 0 && !this.bigBang.banged ) {
             this.bigBang.flicker();
@@ -180,15 +195,6 @@ TheHootHoots = ig.Game.extend({
 
         if( delta > 5 && !this.bigBang.banged ) {
             this.bigBang.bang();
-        }
-
-        if ( ig.input.pressed('god') ) {
-            this.powerStats.power = this.powerStats.maxPower;
-        }
-
-        if ( this.oneUpStats.level >= this.oneUpStats.max &&
-             this.player.tryGrantOneUp() ) {
-            this.oneUpStats.level = 0;
         }
 
         //needs to happen before entity updates
@@ -206,8 +212,11 @@ TheHootHoots = ig.Game.extend({
         if( this.oneUpStats.level >= this.oneUpStats.max ) {
             if( this.player.tryGrantOneUp() ) {
                 this.oneUpStats.level = 0;
+                this.oneUpMeter.glow.start();
             }
         }
+
+        this.hud.update();
 	},
 	
 	draw: function() {

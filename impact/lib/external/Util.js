@@ -240,6 +240,14 @@ var MathUtil = {
         }
 
         return retPoint;
+    },
+
+    sign : function( start, end ) {
+        if( start < end ) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 };
 
@@ -425,3 +433,47 @@ var ScreenSides = {
 };
 
 ScreenSides.values = [ScreenSides.TOP, ScreenSides.RIGHT, ScreenSides.BOTTOM, ScreenSides.LEFT];
+
+var ColorUtil = {
+    componentToHex : function(c) {
+        var hex = parseInt(c).toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    },
+
+    rgbaToHex_noA : function( rgba ) {
+        return "#" + this.componentToHex(rgba.r) + this.componentToHex(rgba.g) + this.componentToHex(rgba.b);
+    },
+
+    rgbaToHex : function( rgba ) {
+        return "#" + this.componentToHex(rgba.r) + this.componentToHex(rgba.g) +
+                     this.componentToHex(rgba.b) + this.componentToHex(rgba.a);
+    },
+
+    hexToRgba : function(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r : parseInt(result[1], 16),
+            g : parseInt(result[2], 16),
+            b : parseInt(result[3], 16),
+            a : parseInt(result[4], 16)
+        } : null;
+    },
+
+    cloneRgba : function( rgba ) {
+        return { r : rgba.r, g : rgba.g, b : rgba.b, a : rgba.a };
+    },
+
+    deltaColor : function( startStr, endStr, time ) {
+        var start = this.hexToRgba( startStr );
+        var end   = this.hexToRgba( endStr );
+
+        var rate = {
+            r : ( start.r - end.r ) / time,
+            g : ( start.g - end.g ) / time,
+            b : ( start.b - end.b ) / time,
+            a : ( start.a - end.a ) / time
+        };
+        return new DeltaColor( startStr, endStr, rate );
+    }
+
+};
