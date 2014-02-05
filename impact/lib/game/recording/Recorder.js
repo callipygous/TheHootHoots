@@ -48,7 +48,7 @@ ig.module(
 
         update : function() {
             if( this.recording ) {
-                if( ig.input.pressed("space") ) {
+                if( ig.input.pressed("beat") ) {
                     var tick = this.timer.tick();
                     //Note: Because rhythm is set to 60 we can just
                     // add the beat with no adjustment

@@ -23,8 +23,8 @@ ig.module(
         recorder : null,
 
         init: function() {
-            ig.input.bind(ig.KEY.SPACE, 'space' );
-            ig.input.bind(ig.KEY.MOUSE1, 'left-click');
+            ig.input.bind(ig.KEY.SPACE, 'beat' );
+            ig.input.bind(ig.KEY.MOUSE1, 'beat');
             ig.input.bind(ig.KEY.MOUSE2, 'right-click');
             this.recorder = new Recorder();
             recorder = this.recorder;
