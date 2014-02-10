@@ -165,6 +165,10 @@ ig.module(
         tryGrantOneUp : function() {
             if( this.health < this.maxHealth ) {
                 this.health += 1;
+
+                if( this.health == 1 ) {
+                    this.startRecovery();
+                }
                 return true;
             }
 

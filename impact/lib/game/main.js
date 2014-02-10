@@ -18,7 +18,7 @@ ig.module(
     'game.time.Metronome',
     'game.hud.OneUpMeterGlow',
 
-    'game.song.flatsongs.HeartBeat',
+    'game.song.flatsongs.Home1',
     'game.song.FlatSongPlayer',
 
     'game.particles.BigBangParticle',
@@ -87,8 +87,8 @@ TheHootHoots = ig.Game.extend({
         ig.input.initMouse();
 
         //var hotSpot     = { start : 0.94, end : 0.99 };
-        var fumblePerc  = 0.75;
-        var hotSpot     = { start : 0.70, end : 0.75 };
+        var fumblePerc  = 0.25;
+        var hotSpot     = { start : 0.70, end : 0.77 };
         var destroySpot = { start : 1.0,  end : 10.0 };
 
         this.weapon = new Glasses( this.powerStats, this.weaponCost );
@@ -103,7 +103,7 @@ TheHootHoots = ig.Game.extend({
 
         this.hud.addItem("BEAT_TRACK_VIEW", this.beatTrackView);
 
-        var beats = SongUtil.savedSongToBeats( HeartBeat ).beats;
+        var beats = SongUtil.savedSongToBeats( Home1 ).beats;
         this.beatFactory = new FlatSongPlayer( this.beatTrack, this.beatTrackView, beats );
 
         this.metronome = new ig.Metronome( 60 );
@@ -180,7 +180,7 @@ TheHootHoots = ig.Game.extend({
         ig.music.add( 'media/music/Home.mp3', 'Home' );
 
         ig.music.volume = 1;
-        //ig.music.play( 'Home' );
+        ig.music.play( 'Home' );
     },
 	
 	update: function() {

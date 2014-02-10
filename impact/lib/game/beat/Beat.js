@@ -16,6 +16,7 @@ ig.module(
     ig.Beat = ig.Class.extend({
         id : -1,
         progress : 0,
+        optional : false,
         handled : false,
         status : null,
         statusListeners : [],

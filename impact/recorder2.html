@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Impact Game</title>
+	<style type="text/css">
+		html,body {
+			background-color: #333;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 12pt;
+		}
+		
+		#canvas {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+
+        p.no-margin {
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+
+        nav.navbar {
+            margin-bottom: 0px;
+        }
+
+        .dark-well {
+            background-color: #333;
+        }
+
+        .dark-well .well{
+            background-color: #222;
+            border: 1px solid #08a308;
+            margin: 10px;
+            padding-top: 5px;
+        }
+
+        .song-metadata form {
+            background-color: #222;
+        }
+
+            .song-metadata form label {
+                background: gray;
+                font-size: 14pt;
+            }
+
+            .song-metadata form label.song-header {
+                background-color: #222;
+                color: #08ec09;
+            }
+
+        p#recording-status {
+            color: #468b4c;
+            font-size: 14pt;
+            margin-top: 4px;
+            margin-bottom: 0px;
+        }
+
+        p#recording-time {
+            color: #08ec09;
+            font-size: 20pt;
+            margin-bottom: 0px;
+        }
+
+        div.recording-controls {
+            padding-bottom: 2px;
+        }
+
+        button#stop_button {
+            margin-right: 10px;
+        }
+
+        .dark-well div#canvas-frame {
+            width: 1000px;
+            height: 860px;
+        }
+
+        #song_formats .ui-selecting { background: #08ec08; }
+        #song_formats .ui-selected { background: #28cf3e; color: #ffffff; }
+        #song_formats { list-style-type: none; margin: 0; padding: 0; }
+        #song_formats li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 40px; }
+	</style>
+
+    <script src="lib/external/third-party/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/external/third-party/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/external/third-party/bootstrap-3.1/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" src="lib/impact/impact.js"></script>
+    <script type="text/javascript" src="lib/external/Util.js"></script>
+    <script type="text/javascript" src="lib/game/recording/RecordingMain2.js"></script>
+    <script type="text/javascript">
+        $( document ).ready(
+            function() {
+                $( "#zoom-slider" ).slider({
+                    orientation: "vertical",
+                    range: "min",
+                    min: 0,
+                    max: 100,
+                    value: 50,
+                    slide: function( event, ui ) {
+                    }
+                });
+
+                $( "#time-slider" ).slider({
+                    orientation: "vertical",
+                    range: "min",
+                    min: 0,
+                    max: 100,
+                    value: 100,
+                    slide: function( event, ui ) {
+                    }
+                });
+
+                $("#song_formats").bind("mousedown", function(e) { e.metaKey = true; }).selectable();
+            }
+        );
+
+    </script>
+
+
+    <link rel="stylesheet" href="lib/external/third-party/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" href="lib/external/third-party/bootstrap-3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <p class="navbar-text">Callipygous Beats</p>
+
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Open</a></li>
+                    <li><a href="#">Save</a></li>
+                    <li><a href="#">Save As</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Undo - Ctrl+Z</a></li>
+                    <li><a href="#">Redo - Ctrl+Shift+Z</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row dark-well">
+        <div class="col-md-4">
+            <div class="recording-controls well row col-md12">
+                <div class="btn-group col-md-4">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-record"></span></button>
+                    <button type="button" class="btn btn-default" id="stop_button"><span class="glyphicon glyphicon-stop"></span></button>
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></button>
+                </div>
+                <p class="col-md-3" id="recording-status">...stopped...</p>
+                <div class="col-md-1"></div>
+                <p class="col-md-3" style="width: 130px;" id="recording-time">00:00:00</p>
+                <button type="button" class="btn btn-default col-md-1"><span class="glyphicon glyphicon-time"></span></button>
+            </div>
+            <div class="song-metadata well row col-md-12">
+                <form role="form form-horizontal">
+                    <label class="col-md-12 song-header">Song Information</label>
+                    <div class="form-group">
+                        <label for="song_file" class="col-md-2">File</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" id="song_file">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="song_length" class="col-md-2">Length</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="song_length" placeholder="Song Length">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="height: 10px;"></div>
+
+                    <div class="form-group">
+                        <label for="song_name" class="col-md-2">Name</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="song_name" placeholder="Song Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="song_artist" class="col-md-2">Artist</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="song_artist" placeholder="Song Artist">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="height: 30px;"></div>
+                    <div class="form-group" >
+                        <label for="song_formats" class="col-md-12">Formats</label>
+                        <ol id="song_formats">
+                            <li class="ui-widget-content col-md-12">OGG</li>
+                            <li class="ui-widget-content col-md-12">MP3</li>
+                            <li class="ui-widget-content col-md-12">M4A</li>
+                            <li class="ui-widget-content col-md-12">WEBM</li>
+                            <li class="ui-widget-content col-md-12">CAF</li>
+                        </ol>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8 dark-well">
+            <div class="well col-md-1" style="padding-left: 10px;">
+                <div class="col-md-6" style="margin: 0px; padding: 0px 5px 0px 0px;">
+                    <button type="button" class="btn btn-default" style="margin-bottom: 2px;"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                    <div id="zoom-slider" style="height: 800px; margin-left: auto; margin-right: auto;"></div>
+                </div>
+                <div class="col-md-6" style="margin-left: 0px; padding: 0px 0px 0px 5px;">
+                    <button type="button" class="btn btn-default" style="margin-bottom: 2px;"><span class="glyphicon glyphicon-road"></span></button>
+                    <div id="time-slider" style="height: 800px; margin-left: auto; margin-right: auto;"></div>
+                </div>
+            </div>
+            <div id="canvas-frame" class="well col-md-9">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+</body>
+</html>
