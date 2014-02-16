@@ -14,7 +14,7 @@ ig.module(
  * is NOT in spirit mode).  When we create spirit mode, BeatEventLogic should become
  * a parent class and NormalBeatEventLogic and SpiritBeatEventLogic should be created.
  */
-ig.BeatEventLogic = ig.Class.extend({
+BeatEventLogic = ig.Class.extend({
 	levelStats  : null,
 	streakLogic : null,
     consumeBeat : false,
@@ -30,7 +30,7 @@ ig.BeatEventLogic = ig.Class.extend({
 	*/
 	onTarget : function(beats) {
         for( var i = 0; i < beats.length; i++ ) {
-            beats[i].setStatus( BeatStatus.STRUCK );
+            beats[i].status = BeatStatus.STRUCK;
             beats[i].handled = true;
         }
         this.streakLogic.onTarget( beats );
@@ -50,7 +50,7 @@ ig.BeatEventLogic = ig.Class.extend({
 	*/
 	missed : function(beats) {
         for( var i = 0; i < beats.length; i++ ) {
-            beats[i].setStatus( BeatStatus.MISSED );
+            beats[i].status = BeatStatus.MISSED;
             beats[i].handled = true;
         }
 		this.streakLogic.missed(beats);

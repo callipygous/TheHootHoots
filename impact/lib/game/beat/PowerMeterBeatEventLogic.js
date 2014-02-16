@@ -8,7 +8,7 @@ ig.module(
 )
 .defines(function(){
 
-    ig.PowerMeterBeatEventLogic = ig.BeatEventLogic.extend({
+    PowerMeterBeatEventLogic = BeatEventLogic.extend({
         powerStats : null,
         oneUpStats : null,
         beatValue : null,

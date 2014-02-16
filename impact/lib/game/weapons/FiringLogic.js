@@ -16,8 +16,9 @@ ig.module(
 
         update : function() {
             if( ig.input.pressed('fire') ) {
-                if( ig.game.beatTrack.inHotSpot().length > 0 ) {
-                    ig.game.beatTrackLogic.fireBeatLogic( true );
+                var digest = ig.game.beatTrack.digest;
+                if( digest.inHotSpot.length > 0 ) {
+                    ig.game.beatTrackLogic.fireBeatLogic( true, digest );
                 }
 
                 var start = ig.game.player.getGlassesLocation();

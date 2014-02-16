@@ -6,20 +6,15 @@ ig.module(
 	'impact.font',
     'impact.image',
 
-    'game.beat.BeatTrackView',
-    'game.beat.BeatTrackLogic',
-    'game.beat.BeatTrack',
-    'game.beat.BeatEventLogic',
+    'game.beat.BeatTrackUtils',
     'game.beat.PowerMeterBeatEventLogic',
+    'game.tracks.HeartBeat',
 
     'game.hud.Barmeter',
     'game.hud.Hud',
     'game.hud.HudItem',
     'game.time.Metronome',
     'game.hud.OneUpMeterGlow',
-
-    'game.song.flatsongs.Home1',
-    'game.song.FlatSongPlayer',
 
     'game.particles.BigBangParticle',
     'game.obstacles.asteroid.AutoAsteroidGenerator',
@@ -51,8 +46,9 @@ TheHootHoots = ig.Game.extend({
 
     beatTrackAnimSheet : new ig.AnimationSheet( 'media/MilkyWay1024_shaved2.png', 155, 1024 ),
 
-    beatTrack     : null,
-    beatTrackView : null,
+    beatTrack      : null,
+    beatTrackView  : null,
+    beatTrackLogic : null,
 
 	// Load a font
 	font: new ig.Font( 'media/04b03.font.png' ),
@@ -91,24 +87,21 @@ TheHootHoots = ig.Game.extend({
         var hotSpot     = { start : 0.70, end : 0.77 };
         var destroySpot = { start : 1.0,  end : 10.0 };
 
+        this.metronome = new ig.Metronome( 60 );
         this.weapon = new Glasses( this.powerStats, this.weaponCost );
         this.firingLogic = new FiringLogic( this.weapon );
-        this.beatEventLogic = new ig.PowerMeterBeatEventLogic( 5, this.powerStats, this.oneUpStats );
+        this.beatEventLogic = new PowerMeterBeatEventLogic( 5, this.powerStats, this.oneUpStats );
 
-        this.beatTrack = new ig.BeatTrack( hotSpot, destroySpot, fumblePerc );
-        this.beatTrackView = new ig.BeatTrackView( 100, 0, 100, 1024, this.beatTrackAnimSheet, this.beatTrack );
-        this.beatTrackView.hotSpot = hotSpot;
-        this.beatTrackView.fumblePerc = fumblePerc;
-        this.beatTrackLogic = new ig.BeatTrackLogic( this.beatTrack, this.beatTrackView, 3, this.beatEventLogic );
+        var beatResult = makeBeatTrack( 0, 4.5, 0.5, 0.25, 6, this.beatTrackAnimSheet, HeartBeat,
+                                        this.beatEventLogic, this.hud, this.metronome );
+
+        this.beatTrack      = beatResult.beatTrack;
+        this.beatTrackView  = beatResult.beatTrackView;
+        this.beatTrackLogic = beatResult.beatTrackLogic;
 
         this.hud.addItem("BEAT_TRACK_VIEW", this.beatTrackView);
 
-        var beats = SongUtil.savedSongToBeats( Home1 ).beats;
-        this.beatFactory = new FlatSongPlayer( this.beatTrack, this.beatTrackView, beats );
-
-        this.metronome = new ig.Metronome( 60 );
         this.metronome.addListener( this.beatTrackLogic );
-        this.metronome.addListener( this.beatFactory );
         this.metronome.start();
 
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
@@ -201,9 +194,10 @@ TheHootHoots = ig.Game.extend({
         this.weapon.update();
 
 		// Update all entities and backgroundMaps
+        this.metronome.update();
 		this.parent();
+
         this.firingLogic.update();
-		this.metronome.update();
         this.asteroidGenerator.update();
 		// Add your own, additional update code here
         this.powerMeter.setPerc( this.powerStats.power / this.powerStats.maxPower );

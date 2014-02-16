@@ -4,97 +4,121 @@ ig.module(
 .requires(
 )
 .defines(function(){
+    //Previous iterations of this class were much more decoupled and cohesive but
+    //it led to a number of issues, such as fast forwarding/reversing etc for the
+    //recorder
+    BeatTrack = ig.Class.extend({
+        //The set of beats on this BeatTrack, ordered by time
+        beats : [],
 
-    ig.BeatTrack = ig.Class.extend({
-        beats : [],	//a list of percentages {id : int, perc : double}
-        hotSpot     : {start : -1.0, end : -1.0},
-        destroySpot : {start : -1.0, end : -1.0},
-        fumbleSpot  : {start : -1.0, end : -1.0},
+        //The earliest beat currently within the active part of this BeatTrack
+        //This index usually corresponds to the lowest beat on the track
+        earlyIndex : 0,
 
-        enqueueBeat : function(beat) {
-            beat.perc = 0;
-            this.beats[this.beats.length] = beat;
+        //One PAST the latest beat currently within the active part of this BeatTrack
+        //This index usually corresponds to the highest beat on the track
+        lateIndex  : 0,
+
+        //The amount of time that the active part of the BeatTrack represents
+        timespan     : null,
+
+        //The earliest time that should be considered on the active BeatTrack
+        // this.beats[earlyIndex].time >= this.activeTime.start
+        // this.activeTime.end - this.activeTime.start = timespan
+        // this.beats[lateIndex].time <= this.activeTime.end
+        activeTime : { start : null, end : null },
+
+        //The time in the center of the hotspot, what should be the currentTime of the music
+        currentTime : null,
+
+        //the current time ranges of the hotspot
+        hotSpot     : { start : null, end : null, offset : null, width : null },
+        fumbleSpot  : { start : null, end : null, width : null },
+
+        //current summary of what beats are in the fumbleSpot, hotSpot, or past the hotSpot
+        digest : null,
+
+        init: function(currentTime, hotSpotOffset, hotSpotWidth, fumbleWidth, timespan, beats) {
+            this.hotSpot.offset    = hotSpotOffset;
+            this.hotSpot.width     = hotSpotWidth;
+            this.fumbleSpot.width  = fumbleWidth;
+            this.timespan          = timespan;
+            this.setTime( currentTime );
+
+            this.beats = beats;
         },
 
-        dequeueBeat  : function() {
-            this.beats.splice(0, 1);
+        setTime : function( time ) {
+            this.currentTime    = time;
+            this.hotSpot.start  = this.currentTime - ( this.hotSpot.width / 2 );
+            this.hotSpot.end    = this.hotSpot.start + this.hotSpot.width;
+
+            this.fumbleSpot.start = this.hotSpot.end;
+            this.fumbleSpot.end   = this.hotSpot.end + this.fumbleSpot.width;
+
+            this.activeTime.start = this.currentTime - (this.timespan - this.hotSpot.offset);
+            this.activeTime.end   = this.activeTime.start + this.timespan;
+            this.findActiveIndices();
         },
 
-        dequeueBeats : function(beats) {
-            this.beats.splice(0, beats);
+        addTime : function( time ) {
+            this.currentTime += time;
+            this.hotSpot.start += time;
+            this.hotSpot.end   += time;
+            this.fumbleSpot.start += time;
+            this.fumbleSpot.end   += time;
+            this.activeTime.start += time;
+            this.activeTime.end   += time;
+            this.findActiveIndices();
         },
 
-        dequeueGT : function(limit) {
-            var i = 0;
-            while(this.beats[i++] > limit);
-            return this.beats.splice(0, i);
-        },
+        findActiveIndices : function( ) {
+            if( this.beats.length == 0 ) {
+                this.earlyIndex = 0;
+                this.lateIndex  = 0;
+            } else {
 
-        dequeueGTE : function(limit) {
-            var i = 0;
-            while(this.beats[i++] >= limit);
-            return this.beats.splice(0, i);
-        },
+                while( this.earlyIndex < this.beats.length &&
+                       this.beats[this.earlyIndex].time <= this.activeTime.start ) {
+                    this.earlyIndex++;
+                }
 
-        shiftBeats : function(perc) {
-            for(var i = 0; i < this.beats.length; i++) {
-                this.beats[i].progress += perc;
-            }
-        },
+                if( this.earlyIndex > 0 ) {
+                    this.earlyIndex--; //we always over shoot by 1
+                }
 
-        inHotSpot : function(){
-            return this.intervalFromEarliestBeat( this.hotSpot );
-        },
-
-        inDestroySpot : function() {
-            var ds = this.destroySpot;
-            var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].progress <= ds.end; i++) {
-                if(this.beats[i].progress >= ds.start) {
-                    outBeats[outBeats.length] = this.beats[i];
+                while( this.lateIndex < this.beats.length &&
+                       this.beats[this.lateIndex].time <= this.activeTime.end ) {
+                    this.lateIndex++;
                 }
             }
 
-            return outBeats;
+            this.calculateDigest();
         },
 
-        pastHotSpot : function() {
-            var hs = this.hotSpot;
-            var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].progress > hs.end; i++) {
-                outBeats.push( this.beats[i]);
-            }
-            return outBeats;
-        },
+        calculateDigest : function() {
+            var inFumbleSpot = [];
+            var inHotSpot    = [];
+            var pastHotSpot  = [];
 
-        inFumbleSpot : function() {
-            return this.intervalFromEarliestBeat( this.fumbleSpot );
-        },
-
-        /*
-         * Use the fact that beats are in order of most progress to least to traverse only
-         * up to the first beat from the end that is not within the given interval.
-         */
-        intervalFromEarliestBeat : function( interval ) {
-            var outBeats = [];
-            for(var i = 0; i < this.beats.length && this.beats[i].progress >= interval.start; i++ ) {
-                if(this.beats[i].progress <= interval.end) {
-                    outBeats[outBeats.length] = this.beats[i];
+            for( var i = this.earlyIndex; i < this.lateIndex && i < this.beats.length; i++ ) {
+                var time = this.beats[i].time;
+                if( time < this.hotSpot.start ) {
+                    pastHotSpot.push( this.beats[i] );
+                } else if( time <= this.hotSpot.end ) {
+                    inHotSpot.push( this.beats[i] );
+                } else if( time <= this.fumbleSpot.end ) {
+                    inFumbleSpot.push( this.beats[i] );
+                } else {
+                    break;
                 }
             }
 
-            return outBeats;
-        },
-
-        init: function(hotSpot, destroySpot, fumblePerc) {
-            this.hotSpot.start = hotSpot.start;
-            this.hotSpot.end   = hotSpot.end;
-            this.destroySpot.start = destroySpot.start;
-            this.destroySpot.end   = destroySpot.end;
-
-            var fumbleHeight = fumblePerc * ( this.hotSpot.end - this.hotSpot.start );
-            this.fumbleSpot.start = this.hotSpot.start - fumbleHeight;
-            this.fumbleSpot.end   = this.hotSpot.start;
+            this.digest = {
+                inFumbleSpot : inFumbleSpot,
+                inHotSpot    : inHotSpot,
+                pastHotSpot  : pastHotSpot
+            };
         }
     });
 

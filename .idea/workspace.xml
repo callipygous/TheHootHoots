@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57db1b17-f794-49e4-9279-6a41a91f0cf6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/ChooseFile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/rhythm/Note.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/PlayRecording.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/RecordBeats.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/RecorderCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/RecordingMain2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/SelectListElement.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/SetSlider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/recording/commands/SetTextField.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/rhythm/SongMetadata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/rhythm/Track.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/impact/lib/game/tracks/HeartBeat.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/Beat.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/Beat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/song/flatsongs/Home1.js" afterPath="$PROJECT_DIR$/impact/lib/game/song/flatsongs/Home1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/player/Player.js" afterPath="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js" afterPath="$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js" afterPath="$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js" afterPath="$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/impact/lib/game/main.js" afterPath="$PROJECT_DIR$/impact/lib/game/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -45,94 +40,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SongMetadata.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/SongMetadata.js">
+      <file leaf-file-name="BeatRenderer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatRenderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+            <state line="17" column="0" selection-start="402" selection-end="402" vertical-scroll-proportion="-2.8076923" vertical-offset="216" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recorder2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/recorder2.html">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="0" selection-start="3400" selection-end="3400" vertical-scroll-proportion="-6.8846154" vertical-offset="1895" max-vertical-offset="4148">
+            <state line="199" column="34" selection-start="6274" selection-end="6274" vertical-scroll-proportion="-7.0384617" vertical-offset="3200" max-vertical-offset="4692">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeatTrackUtils.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackUtils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="4" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="850">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Beat.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/Beat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="4" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="629">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeatTrack.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="16" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.5546875" vertical-offset="1232" max-vertical-offset="2210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeatTrackLogic.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="40" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-4.923077" vertical-offset="620" max-vertical-offset="2210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FiringLogic.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="595">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeatTrackView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="8" selection-start="2497" selection-end="2497" vertical-scroll-proportion="-28.961538" vertical-offset="454" max-vertical-offset="1615">
               <folding>
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1392510086811" expanded="true" signature="116:3006" placeholder="{...}" />
+                <marker date="1392510086811" expanded="true" signature="153:3001" placeholder="{&quot;beatRenderer&quot;: null...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecorderCommand.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecorderCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetTextField.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetTextField.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetSlider.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetSlider.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChooseFile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/ChooseFile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectListElement.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SelectListElement.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecordBeats.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecordBeats.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayRecording.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/PlayRecording.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -140,8 +118,19 @@
       <file leaf-file-name="Rhythm.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="46" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="476">
+            <state line="14" column="87" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeartBeat.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/impact/lib/game/tracks/HeartBeat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="24" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+              <folding>
+                <marker date="1392359113169" expanded="true" signature="136:776" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,23 +153,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/PreRenderedAsteroidGenerator.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/ListAsteroidGenerator.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/PreRenderedAsteroidGenerator.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/particles/SpikedBallParticle.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AutoAsteroidGenerator.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/stencils/SpikedBallStencil.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/stencils/StencilSheet.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js" />
         <option value="$PROJECT_DIR$/impact/lib/impact/entity.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/weapons/GlassesBlast.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/player/HealthMarker.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/player/DyingPlayer.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/weapons/Glasses.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/Asteroid.js" />
@@ -196,10 +174,6 @@
         <option value="$PROJECT_DIR$/impact/lib/game/hud/OneUpMeterGlow.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/player/Player.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/song/flatsongs/Home1.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/main.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/beat/Beat.js" />
-        <option value="$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/rhythm/Note.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/rhythm/Track.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/recording/RecordingMain2.js" />
@@ -215,6 +189,21 @@
         <option value="$PROJECT_DIR$/impact/lib/game/recording/commands/RecordBeats.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/recording/commands/ChangeZoom.js" />
         <option value="$PROJECT_DIR$/impact/lib/game/recording/commands/PlayRecording.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackFactory.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/song/tracks/HeartBeat.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/Beat.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/tracks/HeartBeat.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackUtils.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatRenderer.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/main.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js" />
+        <option value="$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js" />
       </list>
     </option>
   </component>
@@ -314,6 +303,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -362,7 +369,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="weapons" />
+              <option name="myItemId" value="tracks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,7 +395,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="song" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,33 +421,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="time" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
+              <option name="myItemId" value="song" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stencils" />
+              <option name="myItemId" value="flatsongs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,92 +478,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="recording" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recording" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="commands" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheHootHoots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obstacles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="asteroid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -728,6 +627,7 @@
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\recording" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TheHootHoots\impact\lib\game\tracks" />
       <recent name="C:\xampp\htdocs\TheHootHoots\impact\lib\game\obstacles\asteroid" />
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\particles\colorstop" />
       <recent name="C:\xampp\htdocs\CallipygousGames\TheHootHoots\impact\lib\game\status" />
@@ -806,9 +706,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924694" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32049036" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19964974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23987292" sideWeight="0.67176634" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2112788" sideWeight="0.67176634" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32749563" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -856,50 +756,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="24" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/particles/SpiralArm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="3" selection-start="3715" selection-end="3715" vertical-scroll-proportion="0.0" vertical-offset="1328" max-vertical-offset="1734" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/obstacles/asteroid/AsteroidGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="50" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3587" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/stencils/StenciledEntity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="34" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1241" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/impact/entity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="17" selection-start="5800" selection-end="5809" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7446" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/weapons/Glasses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="16" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1156" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/HudItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/Hud.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="867" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="850" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/weapons/GlassesBlast.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="0" selection-start="1229" selection-end="1859" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1207" />
@@ -927,9 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/util/DeltaColor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
+        <state line="8" column="8" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/Barmeter.js">
@@ -939,77 +797,159 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/player/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="41" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.0" vertical-offset="955" max-vertical-offset="3128">
-          <folding />
-        </state>
+        <state line="169" column="41" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.0" vertical-offset="955" max-vertical-offset="3128" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/hud/OneUpMeterGlow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="12" selection-start="1849" selection-end="1849" vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="1224">
-          <folding />
-        </state>
+        <state line="61" column="12" selection-start="1849" selection-end="1849" vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="1224" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Rhythm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/song/flatsongs/HeartBeat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="511">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="511" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/player/DyingPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="53" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="782">
-          <folding />
-        </state>
+        <state line="35" column="53" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/song/flatsongs/Home1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/impact/sound.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="11" selection-start="5292" selection-end="5299" vertical-scroll-proportion="28.115385" vertical-offset="4743" max-vertical-offset="5797">
-          <folding />
-        </state>
+        <state line="236" column="11" selection-start="5292" selection-end="5299" vertical-scroll-proportion="28.115385" vertical-offset="4743" max-vertical-offset="5797" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="358" selection-end="574" vertical-scroll-proportion="-7.3846154" vertical-offset="199" max-vertical-offset="697">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="358" selection-end="574" vertical-scroll-proportion="-7.3846154" vertical-offset="199" max-vertical-offset="697" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="23" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.0" vertical-offset="2074" max-vertical-offset="8228">
-          <folding />
-        </state>
+        <state line="132" column="23" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.0" vertical-offset="2074" max-vertical-offset="8228" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="38" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4794">
-          <folding />
-        </state>
+        <state line="49" column="52" selection-start="1235" selection-end="1235" vertical-scroll-proportion="-6.8846154" vertical-offset="654" max-vertical-offset="969" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="9" selection-start="2411" selection-end="2411" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1564" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Recorder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="48" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/recorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="0" selection-start="3283" selection-end="3283" vertical-scroll-proportion="-7.0384617" vertical-offset="1789" max-vertical-offset="2397" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/impact/impact.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="4" selection-start="2961" selection-end="2961" vertical-scroll-proportion="0.0" vertical-offset="2097" max-vertical-offset="10132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/recorder2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="0" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.0" vertical-offset="1895" max-vertical-offset="4148" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecorderCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetTextField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetSlider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SelectListElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecordBeats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/PlayRecording.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/ChooseFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/impact/entity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="11" selection-start="1361" selection-end="1368" vertical-scroll-proportion="-4.0384617" vertical-offset="1085" max-vertical-offset="7446" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/StreakEventLogic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="330" column="7" selection-start="9744" selection-end="9747" vertical-scroll-proportion="0.0" vertical-offset="6122" max-vertical-offset="8245" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/song/FlatSongPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/song/flatsongs/Circles1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="5487" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/SongMetadata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="102" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/PowerMeterBeatEventLogic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="75" selection-start="824" selection-end="824" vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="884">
+        <state line="10" column="31" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="38" selection-start="442" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1173">
           <folding />
         </state>
       </provider>
@@ -1021,181 +961,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatEventLogic.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/Track.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="29" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="1173">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatHItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1479">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="553" selection-end="565" vertical-scroll-proportion="-6.3846154" vertical-offset="208" max-vertical-offset="1802">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="27" selection-start="4527" selection-end="4527" vertical-scroll-proportion="0.0" vertical-offset="1257" max-vertical-offset="2363">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/Beat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1105">
+        <state line="5" column="8" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/Note.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="9" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+        <state line="3" column="4" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain2.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/tracks/HeartBeat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="52" selection-start="1235" selection-end="1235" vertical-scroll-proportion="-6.8846154" vertical-offset="654" max-vertical-offset="969">
+        <state line="3" column="24" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <folding>
+            <marker date="1392359113169" expanded="true" signature="136:776" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="4" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" vertical-offset="251" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/RecordingMain.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatRenderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="9" selection-start="2411" selection-end="2411" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1564">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/Recorder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="48" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/recorder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="0" selection-start="3283" selection-end="3283" vertical-scroll-proportion="-7.0384617" vertical-offset="1789" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/external/Util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="12" selection-start="10210" selection-end="10218" vertical-scroll-proportion="5.9615383" vertical-offset="6156" max-vertical-offset="8245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/Track.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="30" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/impact/impact.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="4" selection-start="2961" selection-end="2961" vertical-scroll-proportion="0.0" vertical-offset="2097" max-vertical-offset="10132">
+        <state line="17" column="0" selection-start="402" selection-end="402" vertical-scroll-proportion="-2.8076923" vertical-offset="216" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/Rhythm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="46" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+        <state line="14" column="87" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/rhythm/SongMetadata.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/recorder2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="0" selection-start="3400" selection-end="3400" vertical-scroll-proportion="-6.8846154" vertical-offset="1895" max-vertical-offset="4148">
+        <state line="71" column="8" selection-start="2497" selection-end="2497" vertical-scroll-proportion="-28.961538" vertical-offset="454" max-vertical-offset="1615">
           <folding>
-            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1392510086811" expanded="true" signature="116:3006" placeholder="{...}" />
+            <marker date="1392510086811" expanded="true" signature="153:3001" placeholder="{&quot;beatRenderer&quot;: null...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecorderCommand.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+        <state line="199" column="34" selection-start="6274" selection-end="6274" vertical-scroll-proportion="-7.0384617" vertical-offset="3200" max-vertical-offset="4692">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetTextField.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/Beat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
+        <state line="15" column="4" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="629">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SetSlider.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/weapons/FiringLogic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
+        <state line="11" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/ChooseFile.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrackLogic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
+        <state line="44" column="40" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-4.923077" vertical-offset="620" max-vertical-offset="2210">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/SelectListElement.js">
+    <entry file="file://$PROJECT_DIR$/impact/lib/game/beat/BeatTrack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/RecordBeats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/impact/lib/game/recording/commands/PlayRecording.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
+        <state line="85" column="16" selection-start="3343" selection-end="3343" vertical-scroll-proportion="0.5546875" vertical-offset="1232" max-vertical-offset="2210">
           <folding />
         </state>
       </provider>

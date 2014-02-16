@@ -7,13 +7,16 @@ ig.module(
 )
 .defines(function(){
 
-ig.BeatTrackView = ig.HudItem.extend({
+BeatTrackView = ig.HudItem.extend({
 	vec : {x : 0, y : 0},	//ad this.vec to this.pos to get this.end (i.e. the vector from this.pos (start) to this.end)
 	end : {x : 0, y : 0},	//HudItem.pos is the starting point
-	beatItems : [],
+	beatRenderer : null,
     beatTrack : null,
 
-    init: function( startX, startY, endX, endY, animSheet, beatTrack ) {
+    hotSpotInterval    : { start : 0, end : 0 },
+    fumbleSpotInterval : { start : 0, end : 0 },
+
+    init: function( startX, startY, endX, endY, animSheet, beatRenderer, beatTrack ) {
         this.parent( startX, startY );
         this.end.x = endX;
         this.end.y = endY;
@@ -24,21 +27,10 @@ ig.BeatTrackView = ig.HudItem.extend({
             this.addAnim( 'idle',   1, [0] ); //perhaps pass this in
         }
 
+        this.beatRenderer = beatRenderer;
         this.beatTrack = beatTrack;
     },
 
-	enqueueBeat : function(beat) {
-		this.beatItems[this.beatItems.length] = new ig.BeatHItem(beat);
-	},
-	
-	dequeueBeat : function() {
-		this.beatItems.splice(0, 1);
-	},
-	
-	dequeueBeats : function(numBeats) {
-		this.beatItems.splice(0, numBeats);
-	},
-	
 	draw: function() {
 
         if( this.currentAnim ) {
@@ -48,29 +40,45 @@ ig.BeatTrackView = ig.HudItem.extend({
 
         this.drawDebugInfo();
 
-        var progress = 0.0;
-        var beatItem = null;
+        var beats = this.beatTrack.beats;
 
-        for(var i = 0; i < this.beatItems.length; i++) {
-            beatItem = this.beatItems[i];
-            progress = beatItem.beat.progress;
-            beatItem.pos.x = this.pos.x + (this.vec.x * progress) - Math.round(beatItem.width  / 2);
-            beatItem.pos.y = this.pos.y + (this.vec.y * progress) - Math.round(beatItem.height / 2);
-            beatItem.draw();
+        var beat = null;
+        var percentage = null;
+        var pos = { x : 0, y : 0 };
+
+        for(var i = this.beatTrack.earlyIndex; i < this.beatTrack.lateIndex && i < beats.length; i++) {
+            beat = beats[i];
+
+            percentage = this.timeToPercentage( beat.time );
+            pos.x = this.pos.x + ( this.vec.x * percentage ) - Math.round( this.beatRenderer.width  / 2 );
+            pos.y = this.pos.y + ( this.vec.y * percentage ) - Math.round( this.beatRenderer.height / 2 );
+
+            this.beatRenderer.draw( beat, pos );
         }
 	},
 
+    timeToPercentage : function( time ) {
+        return 1 - ( ( time - this.beatTrack.activeTime.start ) / this.beatTrack.timespan );
+    },
+
     drawDebugInfo : function() {
-        this.drawInterval( this.beatTrack.hotSpot,    'red'  );
-        this.drawInterval( this.beatTrack.fumbleSpot, 'green');
+        this.hotSpotInterval.start = this.timeToPercentage( this.beatTrack.hotSpot.start );
+        this.hotSpotInterval.end   = this.timeToPercentage( this.beatTrack.hotSpot.end );
+
+        this.fumbleSpotInterval.start = this.timeToPercentage( this.beatTrack.fumbleSpot.start );
+        this.fumbleSpotInterval.end   = this.timeToPercentage( this.beatTrack.fumbleSpot.end );
+
+        this.drawInterval( this.hotSpotInterval,    'red'   );
+        this.drawInterval( this.fumbleSpotInterval, 'green' );
     },
 
     drawInterval : function( interval, color ) {
         var startX = this.pos.x - 5;
         var width  = 10;
 
-        var startY = this.pos.y + (this.vec.y * interval.start);
-        var height = (this.vec.y * ( interval.end - interval.start) );
+        var startY = this.pos.y + ( this.vec.y   * interval.start );
+        var height = this.vec.y * ( interval.end - interval.start);
+
         var context = ig.system.context;
         context.save();
         context.fillStyle = color;
