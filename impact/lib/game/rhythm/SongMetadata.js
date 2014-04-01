@@ -3,6 +3,7 @@ ig.module( 'game.rhythm.Note' )
 .defines(function(){
     SongMetadata = ig.Class.extend({
 
+        projectBase : null,
         file : null,
 
         name : null,

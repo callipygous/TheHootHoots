@@ -58,38 +58,35 @@ ig.module(
             context.moveTo( this.topStart.x, this.topStart.y );
             context.bezierCurveTo( this.control1Point.x, this.control1Point.y, this.control2Point.x, this.control2Point.y, this.endPoint.x,  this.endPoint.y );
             context.bezierCurveTo( this.control2Point.x, this.control2Point.y, this.control1Point.x, this.control1Point.y, this.bottomStart.x, this.bottomStart.y );
-            // this.bezier( context, this.bottomStart, this.control1Point, this.control2Point, this.endPoint );
-            //this.bezier( context, this.topStart,    this.topControl1,    this.topControl2,    this.end );
-            //this.bezier( context, this.bottomStart, this.bottomControl1, this.bottomControl2, this.end );
-            //context.moveTo( this.topStart.x, this.topStart.y );
-            //context.arc( 0, 0, this.radius, this.topAngle, this.bottomAngle );
-            //context.moveTo( this.topStart.x, this.topStart.y );
+
             var gradient = context.createRadialGradient( this.pos.x, this.pos.y, 0, this.pos.x, this.pos.y, this.radius );
             DrawUtil.addColorStops( gradient, this.colorStops, 1 );
             context.fillStyle = gradient;
             context.fill();
-// DEBUG OUTPUT
-//            context.fillStyle = "white";
-//            context.fill();
-//
-//
-//            context.strokeStyle = "red";
-//            context.stroke();
-//
-//            context.fillStyle = "teal";
-//            context.fillRect( 0, 0, 2, 2 );
-//
-//            context.fillStyle = "blue";
-//            context.fillRect( this.topStart.x, this.topStart.y, 2, 2 );
-//            context.fillStyle = "green";
-//            context.fillRect( this.control1Point.x, this.control1Point.y, 2, 2 );
-//            context.fillStyle = "yellow";
-//            context.fillRect( this.control2Point.x, this.control2Point.y, 2, 2 );
-//
-//            context.fillStyle = "white";
-//            context.fillRect( this.endPoint.x, this.endPoint.y, 2, 2 );
-
+            context.closePath();
             context.restore();
+        },
+
+        debugDraw : function() {
+           var context = ig.system.context;
+           context.fillStyle = "white";
+           context.fill();
+
+           context.strokeStyle = "red";
+           context.stroke();
+
+           context.fillStyle = "teal";
+           context.fillRect( 0, 0, 2, 2 );
+
+           context.fillStyle = "blue";
+           context.fillRect( this.topStart.x, this.topStart.y, 2, 2 );
+           context.fillStyle = "green";
+           context.fillRect( this.control1Point.x, this.control1Point.y, 2, 2 );
+           context.fillStyle = "yellow";
+           context.fillRect( this.control2Point.x, this.control2Point.y, 2, 2 );
+
+           context.fillStyle = "white";
+           context.fillRect( this.endPoint.x, this.endPoint.y, 2, 2 );
         }
 
     });

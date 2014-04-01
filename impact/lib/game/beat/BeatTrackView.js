@@ -46,6 +46,7 @@ BeatTrackView = ig.HudItem.extend({
         var percentage = null;
         var pos = { x : 0, y : 0 };
 
+        ig.system.context.save();
         for(var i = this.beatTrack.earlyIndex; i < this.beatTrack.lateIndex && i < beats.length; i++) {
             beat = beats[i];
 
@@ -55,6 +56,7 @@ BeatTrackView = ig.HudItem.extend({
 
             this.beatRenderer.draw( beat, pos );
         }
+        ig.system.context.restore();
 	},
 
     timeToPercentage : function( time ) {

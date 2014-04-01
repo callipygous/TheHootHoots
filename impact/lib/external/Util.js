@@ -371,13 +371,13 @@ var TimeUtil = {
         timeLeft -= seconds;
 
         var time = TimeUtil.twoDigits( minutes ) + ":" + TimeUtil.twoDigits( seconds ) +
-                   ":" + timeLeft.toString().substring(2,4);
+                   ":" + TimeUtil.twoDigits( timeLeft.toString().substring(2,4) );
         return time;
     },
 
     twoDigits : function( number ) {
         var str = number.toString();
-        if( str.length < 2 ) {
+        while( str.length < 2 ) {
             str = "0" + str;
         }
         return str;

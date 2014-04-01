@@ -31,6 +31,7 @@ ig.module(
 
         noiseOpacity : 0,
         noiseImg : new ig.Image( 'media/noise.png' ),
+        noisePattern : null,
 
         init: function (x, y, settings ) {
             this.parent( x, y, settings );
@@ -53,10 +54,14 @@ ig.module(
 
             if( this.noiseOpacity > 0 ) {
                 context.globalAlpha = this.noiseOpacity;
-                context.fillStyle = context.createPattern( this.noiseImg.data, "repeat" );
+                if( this.noisePattern == null ) {
+                    this.noisePattern = context.createPattern( this.noiseImg.data, "repeat" );
+                }
+                context.fillStyle = this.noisePattern;
                 context.fill();
             }
 
+            context.closePath();
             context.restore();
         },
 

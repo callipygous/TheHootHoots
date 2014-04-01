@@ -5,6 +5,8 @@ ig.module(
     'game.beat.Beat',
     'game.beat.BeatRenderer',
     'game.beat.BeatTrackView',
+    'game.beat.EditorBeatTrackView',
+    'game.beat.EditorBeatRenderer',
     'game.beat.BeatTrackLogic',
     'game.beat.BeatTrack',
     'game.beat.BeatEventLogic',
@@ -41,5 +43,25 @@ ig.module(
             beatTrackLogic : beatTrackLogic
         };
     };
+
+    makeEditorBeatTrack = function( currentTime, hotSpotOffset, hotSpotWidth, fumbleWidth, timespan,
+                                    trackAnimSheet, track, hud, metronome ){
+        var beats = trackToBeats( track, [] );
+        var beatRenderer = new EditorBeatRenderer();
+        var beatTrack = new BeatTrack( currentTime, hotSpotOffset, hotSpotWidth, fumbleWidth, timespan, beats );
+        var beatTrackView  = new EditorBeatTrackView( 100, 0, 100, 1024, beatRenderer, beatTrack );
+        var beatTrackLogic = new BeatTrackLogic( beatTrack, beatTrackView, 3,
+            new PowerMeterBeatEventLogic(5, {maxPower : 100, power : 0}, {max : 100, level : 0})  );
+
+        hud.addItem( "BEAT_TRACK_VIEW", beatTrackView );
+
+        metronome.addListener( beatTrackLogic );
+
+        return {
+            beatTrack      : beatTrack,
+            beatTrackView  : beatTrackView,
+            beatTrackLogic : beatTrackLogic
+        };
+    }
 
 });

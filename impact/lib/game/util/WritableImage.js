@@ -48,7 +48,7 @@ ig.module(
 
 
         resize: function( scale ) {
-            //TODO: Check nearest neighbor resize in Image.jjs
+            //TODO: Check nearest neighbor resize in Image.js
         },
 
         dispose : function() {

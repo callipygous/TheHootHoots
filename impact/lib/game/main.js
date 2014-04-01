@@ -27,10 +27,16 @@ ig.module(
 
     'game.util.Cheats',
     'game.util.DeltaColor',
+    'game.util.OctaveNoise',
+    'game.util.SimplexNoise',
     'game.util.WritableImage',
 
     'game.particles.NoiseLine',
     'game.particles.StarGrid',
+
+    'game.stencils.StencilSheet',
+    'game.stencils.StenciledEntity',
+    'game.stencils.NoiseStencil',
 
     'game.weapons.FiringLogic',
     'game.weapons.Glasses'
@@ -92,8 +98,10 @@ TheHootHoots = ig.Game.extend({
         this.firingLogic = new FiringLogic( this.weapon );
         this.beatEventLogic = new PowerMeterBeatEventLogic( 5, this.powerStats, this.oneUpStats );
 
-        var beatResult = makeBeatTrack( 0, 4.5, 0.5, 0.25, 6, this.beatTrackAnimSheet, HeartBeat,
-                                        this.beatEventLogic, this.hud, this.metronome );
+//        var beatResult = makeBeatTrack( 0, 0.75, 0.5, 0.25, 6, this.beatTrackAnimSheet, HeartBeat,
+//                                              this.beatEventLogic, this.hud, this.metronome );
+
+        var beatResult = makeEditorBeatTrack( 0, 0.75, 0.5, 0.25, 6, this.beatTrackAnimSheet, HeartBeat, this.hud, this.metronome );
 
         this.beatTrack      = beatResult.beatTrack;
         this.beatTrackView  = beatResult.beatTrackView;
@@ -107,7 +115,7 @@ TheHootHoots = ig.Game.extend({
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
         this.asteroidGenerator = new AutoAsteroidGenerator( "asteroidGen", 4, 0.5, 50, 0.5, 600, 0.8 );
 
-        //new StarGrid();
+        new StarGrid();
 
         var reverseSpiralArmArg = {
             radius : 6,
@@ -156,6 +164,17 @@ TheHootHoots = ig.Game.extend({
             rotationSpeed : -0.007
         });
 
+        this.initHealthPowerAndOneUpMeters();
+        this.initScratchStencilSheet();
+
+
+        ig.music.add( 'media/music/Home.mp3', 'Home' );
+
+        ig.music.volume = 1;
+        //ig.music.play( 'Home' );
+    },
+
+    initHealthPowerAndOneUpMeters : function() {
         this.player = this.spawnEntity( "EntityPlayer", 100, 100, { health : 3 } );
         for( var i = 1; i <= this.player.maxHealth; i++ ) {
             this.spawnEntity( "EntityHealthMarker", 50 + ( 120 * i ), 20, { healthLevel : i } );
@@ -166,16 +185,36 @@ TheHootHoots = ig.Game.extend({
 
         this.oneUpMeter = new ig.BarMeter( ig.system.width - 80, 40, 20, 800, false, 'red', '#666666', 2, 0,
             new ig.OneUpMeterGlow( 2, ColorUtil.deltaColor( "#f0f060ff", "#606000ff", 2 ),
-                                      ColorUtil.deltaColor( "#002222ff", "#007777ff", 2 ) )
+                ColorUtil.deltaColor( "#002222ff", "#007777ff", 2 ) )
         );
         this.hud.addItem( "oneUp", this.oneUpMeter );
-
-        ig.music.add( 'media/music/Home.mp3', 'Home' );
-
-        ig.music.volume = 1;
-        ig.music.play( 'Home' );
     },
-	
+
+    initScratchStencilSheet : function() {
+        var scratchSheet = new StencilSheet( "scratch", 200, 200, [
+                {
+                  name : "noiseTest",
+                  pos  : { x : 0, y : 0 },
+                  size : { x : 200, y : 200 },
+                  factoryMethod : function() {
+                    return new NoiseStencil({ x : 0, y : 0}, { x : 200, y : 200 },
+                        new OctaveNoise(generateOctaves(12, 0.5, 0.005), new SimplexNoise()),
+                    1)
+                  },
+                  refreshRate : 300
+                }
+            ]
+        );
+
+        this.scratchSheet = scratchSheet;
+
+        ig.game.spawnEntity( "EntityStenciledEntity", 200, 200, {
+            size : { x : 200, y : 200 },
+            src : { x : 0, y : 0 },
+            stencilImage : scratchSheet.scratch
+        } );
+    },
+
 	update: function() {
         if( this.cheats != null ) {
             this.cheats.update();

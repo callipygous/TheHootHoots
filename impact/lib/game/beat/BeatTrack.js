@@ -32,14 +32,14 @@ ig.module(
         currentTime : null,
 
         //the current time ranges of the hotspot
-        hotSpot     : { start : null, end : null, offset : null, width : null },
+        hotSpot     : { start : null, end : null, offset : null, offsetPerc : null, width : null },
         fumbleSpot  : { start : null, end : null, width : null },
 
         //current summary of what beats are in the fumbleSpot, hotSpot, or past the hotSpot
         digest : null,
 
-        init: function(currentTime, hotSpotOffset, hotSpotWidth, fumbleWidth, timespan, beats) {
-            this.hotSpot.offset    = hotSpotOffset;
+        init: function(currentTime, hotSpotOffsetPerc, hotSpotWidth, fumbleWidth, timespan, beats) {
+            this.hotSpot.offsetPerc = hotSpotOffsetPerc;
             this.hotSpot.width     = hotSpotWidth;
             this.fumbleSpot.width  = fumbleWidth;
             this.timespan          = timespan;
@@ -50,6 +50,7 @@ ig.module(
 
         setTime : function( time ) {
             this.currentTime    = time;
+            this.hotSpot.offset = this.timespan * this.hotSpot.offsetPerc;
             this.hotSpot.start  = this.currentTime - ( this.hotSpot.width / 2 );
             this.hotSpot.end    = this.hotSpot.start + this.hotSpot.width;
 
