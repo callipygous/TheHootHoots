@@ -404,7 +404,7 @@ var ResourceUtil = {
             $resources.css("width: 10000; height: 10000");
             $resources.css("position:fixed; top:30px; background: red;");
 
-            //$resources.css("display:none;");
+            $resources.css("display:none;");
         }
 
         var resources = $("#img-resources")[0];
@@ -416,7 +416,7 @@ var ResourceUtil = {
         var canvas2 = $( "#" + id )[0];
         canvas2.width  = width;
         canvas2.height = height;
-        $( canvas2 ).css("display:none;");
+        $( canvas2 ).css( "display", "none" );
         return canvas2;
     },
 
@@ -477,3 +477,16 @@ var ColorUtil = {
     }
 
 };
+
+var PhysicsUtil = {
+
+    Gc : 6.67384 * Math.pow(10, -11), //gravitational constant
+
+    standardForceOfGravity : function( mass1, mass2, distance ) {
+        return this.forceOfGravity( mass1, mass2, this.Gc, distance );
+    },
+
+    forceOfGravity : function( mass1, mass2, gravitationalConstant, distance) {
+        return(mass1 * mass2 * gravitationalConstant ) / ( distance * distance );
+    }
+}

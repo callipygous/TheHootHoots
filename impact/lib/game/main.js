@@ -37,6 +37,7 @@ ig.module(
     'game.stencils.StencilSheet',
     'game.stencils.StenciledEntity',
     'game.stencils.NoiseStencil',
+    'game.stencils.StarfieldStencil',
 
     'game.weapons.FiringLogic',
     'game.weapons.Glasses'
@@ -88,6 +89,8 @@ TheHootHoots = ig.Game.extend({
         }
         ig.input.initMouse();
 
+        this.initStarfieldStencil();
+
         //var hotSpot     = { start : 0.94, end : 0.99 };
         var fumblePerc  = 0.25;
         var hotSpot     = { start : 0.70, end : 0.77 };
@@ -115,7 +118,7 @@ TheHootHoots = ig.Game.extend({
         this.bigBang = this.spawnEntity("EntityBigBangParticle", ig.system.width / 2, ig.system.height / 2);
         this.asteroidGenerator = new AutoAsteroidGenerator( "asteroidGen", 4, 0.5, 50, 0.5, 600, 0.8 );
 
-        new StarGrid();
+        //new StarGrid();
 
         var reverseSpiralArmArg = {
             radius : 6,
@@ -165,7 +168,6 @@ TheHootHoots = ig.Game.extend({
         });
 
         this.initHealthPowerAndOneUpMeters();
-        this.initScratchStencilSheet();
 
 
         ig.music.add( 'media/music/Home.mp3', 'Home' );
@@ -190,16 +192,17 @@ TheHootHoots = ig.Game.extend({
         this.hud.addItem( "oneUp", this.oneUpMeter );
     },
 
-    initScratchStencilSheet : function() {
-        var scratchSheet = new StencilSheet( "scratch", 200, 200, [
+    initStarfieldStencil : function() {
+        var noiseGenerator = new OctaveNoise( generateOctaves(12, 0.5, 0.005), new SimplexNoise() );
+//        var octaves = [new Octave(1, 0.005)/*, new Octave(5, 0.05), new Octave(3, 0.1), new Octave(1, 0.5)*/];
+//        var noiseGenerator = new OctaveNoise(octaves, new SimplexNoise() );
+        var scratchSheet = new StencilSheet( "starfield", ig.system.width, ig.system.height, [
                 {
-                  name : "noiseTest",
+                  name : "starfield",
                   pos  : { x : 0, y : 0 },
-                  size : { x : 200, y : 200 },
+                  size : { x : ig.system.width, y : ig.system.height },
                   factoryMethod : function() {
-                    return new NoiseStencil({ x : 0, y : 0}, { x : 200, y : 200 },
-                        new OctaveNoise(generateOctaves(12, 0.5, 0.005), new SimplexNoise()),
-                    1)
+                    return new StarfieldStencil( { x : 0, y : 0 }, { x : ig.system.width, y : ig.system.height }, 32, 0.01, noiseGenerator );
                   },
                   refreshRate : 300
                 }
@@ -208,9 +211,9 @@ TheHootHoots = ig.Game.extend({
 
         this.scratchSheet = scratchSheet;
 
-        ig.game.spawnEntity( "EntityStenciledEntity", 200, 200, {
-            size : { x : 200, y : 200 },
-            src : { x : 0, y : 0 },
+        ig.game.spawnEntity( "EntityStenciledEntity", 0, 0, {
+            src  : { x : 0, y : 0 },
+            size : { x : ig.system.width, y : ig.system.height },
             stencilImage : scratchSheet.scratch
         } );
     },

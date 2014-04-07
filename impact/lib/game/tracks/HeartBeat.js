@@ -1,7 +1,8 @@
 ig.module( 'game.tracks.HeartBeat' )
 .requires(
     'game.rhythm.Note',
-    'game.rhythm.Rhythm'
+    'game.rhythm.Rhythm',
+    'impact.sound'
 )
 .defines(function(){
     HeartBeat = {

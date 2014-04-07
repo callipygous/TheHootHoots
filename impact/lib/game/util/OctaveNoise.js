@@ -17,6 +17,7 @@ ig.module(
         init : function( octaves, noiseGen ) {
             this.octaves  = octaves;
             this.noiseGen = noiseGen;
+            this.contribution = 1;
         },
 
         noise : function( x, y ) {
