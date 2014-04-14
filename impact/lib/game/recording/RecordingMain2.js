@@ -10,7 +10,7 @@ ig.module(
     'game.hud.Hud',
     'game.hud.HudItem',
     'game.time.Metronome',
-    'game.recording.Recorder'
+    'game.recording.Recorder2'
 )
 .defines(function(){
 
@@ -28,7 +28,7 @@ ig.module(
             ig.input.bind(ig.KEY.SPACE, 'beat' );
             ig.input.bind(ig.KEY.MOUSE1, 'beat');
             ig.input.bind(ig.KEY.MOUSE2, 'right-click');
-            this.recorder = new Recorder();
+            this.recorder = new Recorder2();
             recorder = this.recorder;
         },
 

@@ -95,6 +95,18 @@
     <script type="text/javascript" src="lib/external/Util.js"></script>
     <script type="text/javascript" src="lib/game/recording/RecordingMain2.js"></script>
     <script type="text/javascript">
+        function updateFile( event ) {
+           var $input = $(event.target);
+           return ig.game.recorder.updateFile( $input );
+        }
+
+        function updateLength( event ) {
+            var $input = $(event.target);
+            var $slider = $("#time-slider");
+            return ig.game.recorder.updateLength( $input, $slider );
+
+        }
+
         $( document ).ready(
             function() {
                 $( "#zoom-slider" ).slider({
@@ -117,7 +129,7 @@
                     }
                 });
 
-                $("#song_formats").bind("mousedown", function(e) { e.metaKey = true; }).selectable();
+                $("#song_formats").selectable();
             }
         );
 
@@ -169,22 +181,16 @@
                 <form role="form form-horizontal">
                     <label class="col-md-12 song-header">Song Information</label>
                     <div class="form-group">
-                        <label for="song_file" class="col-md-2">Basedir</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control" id="basedir">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="song_file" class="col-md-2">File</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control" id="song_file">
+                            <input class="form-control" id="song_file" onchange="updateFile(event);">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="song_length" class="col-md-2">Length</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="song_length" placeholder="Song Length">
+                            <input type="text" class="form-control" id="song_length" placeholder="Song Length" onchange="updateLength(event)">
                         </div>
                     </div>
 

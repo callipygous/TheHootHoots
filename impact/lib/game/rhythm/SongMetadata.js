@@ -1,4 +1,4 @@
-ig.module( 'game.rhythm.Note' )
+ig.module( 'game.rhythm.SongMetadata' )
 .requires()
 .defines(function(){
     SongMetadata = ig.Class.extend({

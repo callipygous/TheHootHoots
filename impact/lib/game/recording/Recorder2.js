@@ -2,11 +2,19 @@ ig.module(
     'game.recording.Recorder2'
 )
 .requires(
-    'game.rhythm.Rhythm'
+    'game.beat.BeatTrackUtils',
+    'game.beat.PowerMeterBeatEventLogic',
+
+    'game.recording.commands.ChooseFile',
+    'game.recording.commands.SetLength',
+
+    'game.rhythm.Rhythm',
+    'game.rhythm.SongMetadata',
+    'game.rhythm.Track'
 )
 .defines(function () {
 
-    Recorder2 = ig.Class.extend({
+        Recorder2 = ig.Class.extend({
 
         time  : null,
         track : null,
@@ -22,11 +30,9 @@ ig.module(
 
         init: function () {
             //todo substitute EventLogic
-            var beatEventLogic = new PowerMeterBeatEventLogic( 5, { maxPower : 100, power : 0}, { max : 100, level : 0 } );
             this.track = new Track( new SongMetadata(), new Rhythm(60, []) );
 
-            var beatTrackInfo = makeEditorBeatTrack( 0, 0.75, 0.5, 0.25, 6,
-                                                     this.track, beatEventLogic, this.hud, this.metronome );
+            //var beatResult = makeEditorBeatTrack( 0, 0.75, 0.5, 0.25, 6, this.beatTrackAnimSheet, HeartBeat, this.hud, this.metronome );
 
         },
 
@@ -70,17 +76,17 @@ ig.module(
         //this is done so that the beatTrack display in "game" will reflect the UI and
         //NOT require special handling
 
-        updateBasedir : function( ) {
-            var basedir = $("#basedir").value;
-            this.
+        updateFile : function( $input ) {
+            var cmd = new ChooseFile( this.track.songMetadata.file, $input.val(), this.track.songMetadata, $input );
+            cmd.doCommand();
+            return false;
         },
 
-        updateFile : function( ) {
-            var file = $()
-        },
-
-        updateLength : function( ) {
-
+        updateLength : function( $lengthField, $slider ) {
+            var cmd = new SetLength( this.track.songMetadata.length, TimeUtil.timeStrToSeconds( $lengthField.val() ),
+                                     this.track.songMetadata, $lengthField, $slider );
+            cmd.doCommand();
+            return false;
         },
 
         updateName : function() {

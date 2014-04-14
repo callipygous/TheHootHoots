@@ -46,11 +46,14 @@ ig.module(
         numCols : 0,
         numRows : 0,
 
+        percentWhite : 0.45,
+
         stencil : new PointStarStencil( { x : 0, y : 0}, 1, 1, null),
 
         //TODO: Instead make it possibly a point, line, or curve
         centersOfMass : [],
-
+        centersOfMassLuckMod : 0.15,
+        maxDistance : null,
         init : function( pos, size, gridSize, density, noiseGenerator ) {
             this.pos  = pos;
             this.size = size;
@@ -63,14 +66,8 @@ ig.module(
 
             this.stars = [];
 
-            for(var i = 0; i < 3; i++ ) {
-                this.centersOfMass[i] = new Pos( this.size.x * Math.random(),
-                                                 this.size.y * Math.random());
-            }
-
             this.createStars();
         },
-
 
 
         createStars : function() {
@@ -89,7 +86,7 @@ ig.module(
                             var mass = Math.random() * 1;
                             mass = mass * mass;
 
-                            if( MathUtil.rollAgainstChance(noise * this.density)) {
+                            if( MathUtil.rollAgainstChance( noise * this.density ) ) {
                                 var starInfo = new StarInfo( pos, noise, brightness, mass );
                                 if( MathUtil.rollAgainstChance(0.5)) {
                                     this.stars.push( starInfo  );
@@ -169,11 +166,26 @@ ig.module(
                     this.stencil.radius = star.mass * 4;
                     this.stencil.pos.x = star.pos.x;
                     this.stencil.pos.y = star.pos.y;
-                    this.stencil.colorStops = [
-                        new ColorStop(0,     { r : color, g : color, b : color, a : 1 } ),
-                        new ColorStop(0.45,  { r : color, g : color, b : color, a : 0.55 } ),
-                        new ColorStop(1,     { r : color, g : color, b : color, a : 0.25 } )
-                    ];
+
+                    if( MathUtil.rollAgainstChance(this.percentWhite) ) {
+                        this.stencil.colorStops = [
+                            new ColorStop(0,     { r : color, g : color, b : color, a : 1    } ),
+                            new ColorStop(0.65,  { r : color, g : color, b : color, a : 0.35 } ),
+                            new ColorStop(1,     { r : color, g : color, b : color, a : 0.25 } )
+                        ];
+                    } else {
+                        this.stencil.colorStops = [
+                            new ColorStop(0,     this.randColor( color, 1, 0 ) ),
+                            new ColorStop(0.65,  this.randColor( color, 0.35, 0 ) ),
+                            new ColorStop(1,     this.randColor( color, 0.25, 0 ) )
+                        ];
+                    }
+
+//                    colorStops : [
+//                        new ColorStop(0,   this.randColor(    1,      0  ) ),
+//                        new ColorStop(.85, this.randColor( 0.55,   0.25  ) ),
+//                        new ColorStop(1,   this.randColor( 0.25,   0.5   ) )
+//                    ]
 
                     this.stencil.draw( context );
                 }
@@ -218,6 +230,21 @@ ig.module(
 
                 }
             }
+        },
+
+        randComponent : function( base, variability ) {
+            var comp = parseInt( Math.random() * variability + (base - variability / 2) );
+            return MathUtil.clamp( comp, 0, 255 );;
+        },
+
+        //need better color generation
+        randColor : function( color, opacityBase, opacityVariability ) {
+            return {
+                r : this.randComponent( color, 100),
+                g : this.randComponent( color, 100),
+                b : this.randComponent( color, 100),
+                a :  Math.random() * opacityVariability + (opacityBase - opacityVariability / 2)
+            };
         }
 
     });

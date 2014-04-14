@@ -353,25 +353,41 @@ var SongUtil = {
 
 var TimeUtil = {
 
-    formatTime : function( timeInSeconds ) {
-        //Recorder will be set by recorder main
-        var secondsInAMinute = 60;
-        var secondsInAnHour  = 60 * secondsInAMinute;
-        var secondsInADay    = 24 * secondsInAnHour;
+    secondsInAMinute : 60,
+    secondsInAnHour  : 60 * 60,
+    secondsInADay    : 24 *  60 * 60,
+
+    //expects hours:minutes:seconds
+    timeStrToSeconds : function( timeString ) {
+        var timeDenominations = timeString.split(":");
+        if( timeDenominations < 4 ) {
+            throw "Invalid timeString: " + timeString;
+        }
+
+        return parseInt( timeDenominations[0] ) * this.secondsInAnHour  +
+               parseInt( timeDenominations[1] ) * this.secondsInAMinute +
+               parseInt( timeDenominations[2] );
+    },
+
+    formatTime : function( timeInSeconds, hs ) {
+        var showHundredths = TypeUtil.isEmpty( hs ) ? true : hs;
 
         var timeLeft = timeInSeconds;
 
-        var hours   = Math.floor( timeLeft / secondsInAnHour );
-        timeLeft -= hours * secondsInAnHour;
+        var hours   = Math.floor( timeLeft / this.secondsInAnHour );
+        timeLeft -= hours * this.secondsInAnHour;
 
-        var minutes = Math.floor( timeLeft / secondsInAMinute );
-        timeLeft -= minutes * secondsInAMinute;
+        var minutes = Math.floor( timeLeft / this.secondsInAMinute );
+        timeLeft -= minutes * this.secondsInAMinute;
 
         var seconds = Math.floor( timeLeft );
         timeLeft -= seconds;
 
-        var time = TimeUtil.twoDigits( minutes ) + ":" + TimeUtil.twoDigits( seconds ) +
-                   ":" + TimeUtil.twoDigits( timeLeft.toString().substring(2,4) );
+        var time = TimeUtil.twoDigits( hours ) + ":" + TimeUtil.twoDigits( minutes ) + ":" + TimeUtil.twoDigits( seconds );
+        if( showHundredths ) {
+            time += ":" + TimeUtil.twoDigits( timeLeft.toString().substring(2,4) );
+        }
+
         return time;
     },
 
